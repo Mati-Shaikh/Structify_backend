@@ -57,7 +57,7 @@ let RegisterUser = async (req, res) => {
     } catch (err) {
       // Handle other errors, e.g., database connection issues
       console.error(err);
-      res.status(500).json("Internal server error");
+      res.status(500).json("Internal server error happens");
     }
   };
   
