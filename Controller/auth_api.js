@@ -18,12 +18,11 @@ let RegisterUser = async (req, res) => {
       const salt = await bcrypt.genSalt(10);
       const hashedPass = await bcrypt.hash(req.body.Password, salt);
       const newUser = new Student({
-        FullName: req.body.FullName,
+        FirstName: req.body.FirstName,
+        LastName: req.body.LastName,
         Email: req.body.Email,
         Password: hashedPass,
-        PhoneNumber: req.body.PhoneNumber,
-        Address: req.body.Address,
-        Country: req.body.Country,
+        Age: req.body.Age
       });
   
       const user = await Student.create(newUser);
