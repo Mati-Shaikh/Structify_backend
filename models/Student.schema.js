@@ -21,6 +21,8 @@ const studentSchema = mongoose.Schema({
     type: Number,
     default: 1, 
   },
+  resetPin: { type: String },  // Store the reset PIN
+  pinExpires: { type: Date },  // Expiry time for the PIN
 }, { timestamps: true });
 
 const model = mongoose.model("Student", studentSchema);
