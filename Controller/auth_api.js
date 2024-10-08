@@ -7,7 +7,7 @@ const Student = require('../models/Student.schema')
 const generateToken = (user) => {
   const payload = {
     _id: user._id,
-    FullName: user.FullName,
+    FullName: user.FirstName + " " + user.LastName,
   };
 
   return jwt.sign(payload, process.env.JWT_SECRET, {
@@ -29,7 +29,16 @@ let RegisterUser = async (req, res) => {
 
     const user = await Student.create(newUser);
 
-    res.status(200).json(user);
+    const token = generateToken(user);
+    
+    res.status(200).json({
+      token,  // JWT token
+      user: {
+        _id: user._id,       // Return user ID
+        FullName: user.FirstName + " " + user.LastName  // Return full name
+      }
+    });
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -53,8 +62,17 @@ let LoginUser = async (req, res) => {
 
     const token = generateToken(user);
 
-    const { password, ...others } = user._doc;
-    res.status(200).json({ ...others, token });
+    
+
+    res.status(200).json({
+      token,  // JWT token
+      user: {
+        _id: user._id,       // Return user ID
+        FullName: user.FirstName + " " + user.LastName  // Return full name
+      }
+    });
+
+
   } catch (err) {
     // Handle other errors, e.g., database connection issues
     console.error(err);
@@ -148,8 +166,23 @@ const UpdateUserPassword = async (req, res) => {
   }
 };
 
+
+const ProtectedRoute = async (req, res) =>{
+  const { userId } = req.body; // Expecting userId from the request body
+  const decodedUserId = res.locals.userId; // The ID from the decoded token
+
+  // Check if the IDs match
+  if (decodedUserId === userId) {
+    return res.status(200).json({ message: 'Token is valid', userId: decodedUserId, userFullName: res.locals.userFullName });
+  } else {
+    return res.status(401).json('Access denied: Invalid user ID');
+  }
+};
+
+
+
 //get user profile
-let GetUserprofile = async (req,res) =>{
+let GetUserProfile = async (req,res) =>{
   const userId = res.locals.userId; // Assuming your middleware sets the user ID in req.user
 
   try {
@@ -168,7 +201,7 @@ let GetUserprofile = async (req,res) =>{
 
 
 
-let UpdateUser = async (req, res) => {
+let UpdateUserProfile = async (req, res) => {
   // User ID is available from the middleware
   let id = res.locals.userId;
   let data = req.body;
@@ -201,4 +234,4 @@ let Deleteuser =  async(req ,res)=>{
 
 
 
-module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , UpdateUser, Deleteuser, GetUserprofile};
+module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , ProtectedRoute, UpdateUserProfile, Deleteuser, GetUserProfile};

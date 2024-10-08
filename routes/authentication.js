@@ -11,15 +11,11 @@ const verifyToken = (req, res, next) => {
 
     // Access _id and FullName from the decoded token
     const { _id, FullName } = decoded;
-    //console.log(_id)
-    //console.log(FullName)
+
     // Store user information in res.locals for further use in the route handlers
     res.locals.userId = _id;
     res.locals.userFullName = FullName;
-    //console.log(res.locals.userId);
-    //console.log(res.locals.userFullName);
-
-
+   
     next();
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
