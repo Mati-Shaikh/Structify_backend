@@ -17,6 +17,13 @@ const generateToken = (user) => {
 
 let RegisterUser = async (req, res) => {
   try {
+
+    const existingUser = await Student.findOne({ Email: req.body.Email });
+    
+    if (existingUser) {
+      return res.status(400).json({ message: "User with this email already exists." });
+    }
+    
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(req.body.Password, salt);
     const newUser = new Student({
