@@ -148,6 +148,57 @@ const UpdateUserPassword = async (req, res) => {
   }
 };
 
+//get user profile
+let GetUserprofile = async (req,res) =>{
+  const userId = res.locals.userId; // Assuming your middleware sets the user ID in req.user
+
+  try {
+    const userProfile = await Student.findById(userId);
+
+    if (!userProfile) {
+      return res.status(404).json({ message: 'User profile not found' });
+    }
+
+    res.status(200).json(userProfile);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
 
 
-module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword };
+
+let UpdateUser = async (req, res) => {
+  // User ID is available from the middleware
+  let id = res.locals.userId;
+  let data = req.body;
+
+  try {
+    let user = await Student.findByIdAndUpdate(id, data, { new: true });
+
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating user', err: err });
+  }
+};
+
+//delete user
+let Deleteuser =  async(req ,res)=>{
+    let id = res.locals.userId;
+    let users = await Freelance.findByIdAndDelete(id);
+    if(users)
+    {
+       res.status(200).json(users)
+    }else
+    {
+      res.status(404).json({"Message":"Error" , err:err})
+    }
+}
+
+
+
+module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , UpdateUser, Deleteuser, GetUserprofile};
