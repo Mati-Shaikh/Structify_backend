@@ -21,7 +21,7 @@ let RegisterUser = async (req, res) => {
     const existingUser = await Student.findOne({ Email: req.body.Email });
     
     if (existingUser) {
-      return res.status(400).json({ message: "User with this email already exists." });
+      return res.status(400).json({ message: "You already have an account. Please Login" });
     }
     
     const salt = await bcrypt.genSalt(10);
@@ -50,6 +50,55 @@ let RegisterUser = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+let GoogleAuth = async (req, res) => {
+  try {
+    const { email, name, googleId } = req.body;
+
+    // Check if user already exists
+    let user = await Student.findOne({ Email: email });
+
+
+    const [firstName, ...lastNameParts] = name.split(" ");
+    const lastName = lastNameParts.join(" ");
+
+    const randomPassword = crypto.randomBytes(8).toString('hex'); 
+    const salt = await bcrypt.genSalt(10); 
+    const hashedPass = await bcrypt.hash(randomPassword, salt); 
+
+    if (!user) {
+      // Create a new user if they don't exist
+      user = new Student({
+        Email: email,
+        FirstName: firstName,
+        LastName: lastName,
+        googleId,
+        Password: hashedPass,
+      });
+      await user.save();
+    } else {
+      if (!user.googleId) {
+        user.googleId = googleId;
+        await user.save();
+      }
+    }
+
+    const token = generateToken(user);
+    
+    res.status(200).json({
+      token,  // JWT token
+      user: {
+        _id: user._id,       // Return user ID
+        FullName: user.FirstName + " " + user.LastName  // Return full name
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: 'Authentication failed'});
+  }
+};
+
+
 
 let LoginUser = async (req, res) => {
   try {
@@ -124,6 +173,41 @@ let VerifyUserCredentials = async (req, res) => {
         return res.status(401).json({ message: "Error sending email", error: error.message });
       }
       res.status(200).json({ message: "PIN sent to your email" });
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json("Internal server error");
+  }
+};
+
+
+let VerifyEmail = async (req, res) => {
+  try {
+    
+    const pin = crypto.randomInt(10000, 99999); // Generate a 6-digit PIN
+   
+    // Set up Nodemailer to send the email
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL,
+      to: req.body.Email,
+      subject: "Email Verification PIN",
+      text: `Your email verification PIN is ${pin}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error); // Log the specific error
+        return res.status(401).json({ message: "Error sending email", error: error.message });
+      }
+      res.status(200).json({ message: "PIN sent to your email", pin: pin });
     });
   } catch (err) {
     console.error(err);
@@ -241,4 +325,4 @@ let Deleteuser =  async(req ,res)=>{
 
 
 
-module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , ProtectedRoute, UpdateUserProfile, Deleteuser, GetUserProfile};
+module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , ProtectedRoute, UpdateUserProfile, Deleteuser, GetUserProfile, GoogleAuth, VerifyEmail};
