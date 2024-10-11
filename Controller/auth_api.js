@@ -51,6 +51,25 @@ let RegisterUser = async (req, res) => {
   }
 };
 
+
+
+let DuplicateUser = async (req, res) => {
+  try {
+
+    const existingUser = await Student.findOne({ Email: req.body.Email });
+    
+    if (existingUser) {
+      return res.status(400).json({ message: "You already have an account. Please Login" });
+    }
+    
+    
+    res.status(200).json({ message: "Unique Email" });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 let GoogleAuth = async (req, res) => {
   try {
     const { email, name, googleId } = req.body;
@@ -325,4 +344,4 @@ let Deleteuser =  async(req ,res)=>{
 
 
 
-module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , ProtectedRoute, UpdateUserProfile, Deleteuser, GetUserProfile, GoogleAuth, VerifyEmail};
+module.exports = { RegisterUser, LoginUser, VerifyUserCredentials, VerifyPIN, UpdateUserPassword , ProtectedRoute, UpdateUserProfile, Deleteuser, GetUserProfile, GoogleAuth, VerifyEmail, DuplicateUser};
