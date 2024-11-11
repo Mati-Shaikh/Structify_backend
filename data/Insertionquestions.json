@@ -1,0 +1,199 @@
+[
+    {
+      "question": "What is the time complexity of inserting a node at the start of a singly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(1)",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "When inserting a node at the start of a linked list, what should the new node’s next pointer point to?",
+      "options": ["Head node", "Tail node", "Middle node", "None"],
+      "answer": "Head node",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the primary advantage of inserting a node at the start of a singly linked list?",
+      "options": ["No advantage", "Low memory usage", "Quick insertion", "Easier to traverse"],
+      "answer": "Quick insertion",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What happens if you try to insert a node at the middle of an empty linked list?",
+      "options": ["Error", "Creates a single node", "Adds a node at the end", "Adds a node at the start"],
+      "answer": "Creates a single node",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the time complexity for inserting a node at the middle of a linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "How do you determine the middle position in a linked list for insertion?",
+      "options": ["Using tail pointer", "Counting nodes", "Using recursion", "Random insertion"],
+      "answer": "Counting nodes",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "When inserting a node at the end of a singly linked list, what will the new node’s next pointer point to?",
+      "options": ["Head", "Tail", "Previous node", "Null"],
+      "answer": "Null",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "If a linked list has 'n' nodes, how many nodes do you traverse to insert a node at the end?",
+      "options": ["n", "1", "n-1", "n/2"],
+      "answer": "n",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the time complexity of inserting a node at the end of a singly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Which node is easiest to insert into in a singly linked list?",
+      "options": ["Start", "End", "Middle", "Any node"],
+      "answer": "Start",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "To insert at the end of a linked list efficiently, what additional pointer might you maintain?",
+      "options": ["Head pointer", "Tail pointer", "Middle pointer", "Random pointer"],
+      "answer": "Tail pointer",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is a potential downside of frequently inserting nodes at the end of a singly linked list?",
+      "options": ["High memory usage", "Increased time complexity", "Complex traversal", "Stack overflow"],
+      "answer": "Increased time complexity",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "Which insertion requires updating two nodes’ next pointers in a doubly linked list?",
+      "options": ["Start", "Middle", "End", "All insertions"],
+      "answer": "Middle",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the best way to find the midpoint in a linked list?",
+      "options": ["Counting nodes", "Using a fast and slow pointer", "Recursive traversal", "None"],
+      "answer": "Using a fast and slow pointer",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "In a linked list of 7 nodes, what is the index position of the middle for insertion?",
+      "options": ["2", "3", "4", "5"],
+      "answer": "4",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "How does insertion at the end of a doubly linked list differ from insertion at the end of a singly linked list?",
+      "options": ["Only updates head", "Updates next and previous pointers", "Uses recursion", "No difference"],
+      "answer": "Updates next and previous pointers",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the advantage of using a doubly linked list for insertion operations?",
+      "options": ["More memory efficient", "Faster insertion", "No need for pointers", "Easier bidirectional traversal"],
+      "answer": "Easier bidirectional traversal",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "In a circular linked list, where does the last node point?",
+      "options": ["Head", "Tail", "Null", "Itself"],
+      "answer": "Head",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "How would you insert a node in a sorted linked list?",
+      "options": ["At start", "At end", "By finding the appropriate spot", "At a random position"],
+      "answer": "By finding the appropriate spot",
+      "topic": "Linked List",
+      "difficulty": "Hard"
+    },
+    {
+      "question": "What type of linked list is best suited for efficient insertions and deletions at both ends?",
+      "options": ["Singly linked list", "Doubly linked list", "Circular linked list", "Skip list"],
+      "answer": "Doubly linked list",
+      "topic": "Linked List",
+      "difficulty": "Hard"
+    },
+    {
+      "question": "Which data structure is often used to track the head and tail in a linked list?",
+      "options": ["Array", "Stack", "Pointers", "Queue"],
+      "answer": "Pointers",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In a singly linked list, if the node to insert is the last node, where should the next pointer of this node point?",
+      "options": ["Head", "Middle", "Null", "Next node"],
+      "answer": "Null",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "How do you insert a node at a specific index in a linked list?",
+      "options": ["Loop to index", "Recursive call", "Insert at end", "Insert at start"],
+      "answer": "Loop to index",
+      "topic": "Linked List",
+      "difficulty": "Hard"
+    },
+    {
+      "question": "In a circular linked list, how do you ensure no node points to null after an insertion at the end?",
+      "options": ["Point the last node to the head", "Leave it null", "Point to a random node", "Use a tail pointer"],
+      "answer": "Point the last node to the head",
+      "topic": "Linked List",
+      "difficulty": "Hard"
+    },
+    {
+      "question": "How many nodes must you traverse to insert at the middle of a linked list with n nodes?",
+      "options": ["n/2", "n", "1", "n-1"],
+      "answer": "n/2",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "For a singly linked list of n nodes, how many pointer adjustments are required for inserting at the start?",
+      "options": ["1", "2", "n", "n/2"],
+      "answer": "1",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is a primary use case of inserting nodes in the middle of a linked list?",
+      "options": ["Quick removal", "Low memory use", "Priority insertion", "Fast sorting"],
+      "answer": "Priority insertion",
+      "topic": "Linked List",
+      "difficulty": "Hard"
+    },
+    {
+      "question": "When would inserting at the start be preferable to inserting at the end?",
+      "options": ["When constant time insertions are needed", "When a queue is implemented", "When the middle is more important", "When end is more important"],
+      "answer": "When constant time insertions are needed",
+      "topic": "Linked List",
+      "difficulty": "Medium"
+    }
+  ]
+  
