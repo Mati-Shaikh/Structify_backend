@@ -195,5 +195,348 @@
       "topic": "Linked List",
       "difficulty": "Medium"
     }
-  ]
-  
+,
+        {
+            "question": "What is the time complexity of inserting a node at the start of a singly linked list?",
+            "options": ["O(n)", "O(1)", "O(log n)", "O(n²)"],
+            "answer": "O(1)",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "What are the essential pointer updates needed when inserting at the start of a singly linked list?",
+            "options": ["New node's next to head, update head", "Only update head", "Update tail only", "Update all nodes"],
+            "answer": "New node's next to head, update head",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "In a doubly linked list, how many pointer adjustments are needed for insertion at start?",
+            "options": ["2", "1", "3", "4"],
+            "answer": "3",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What is the prerequisite for inserting a node at position k in a linked list?",
+            "options": ["Find k-1th node", "Find kth node", "Find last node", "Find first node"],
+            "answer": "Find k-1th node",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "Which technique can optimize middle insertion in a linked list?",
+            "options": ["Using fast/slow pointers", "Using recursion", "Using array", "Using stack"],
+            "answer": "Using fast/slow pointers",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the main challenge in middle insertion compared to start/end insertion?",
+            "options": ["Maintaining node connections", "Memory allocation", "Finding position", "Updating head"],
+            "answer": "Maintaining node connections",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What optimization can improve the time complexity of end insertion?",
+            "options": ["Maintaining tail pointer", "Using recursion", "Using arrays", "Using stacks"],
+            "answer": "Maintaining tail pointer",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "Without a tail pointer, what's the time complexity of end insertion?",
+            "options": ["O(n)", "O(1)", "O(log n)", "O(n²)"],
+            "answer": "O(n)",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "In a circular doubly linked list, what additional step is needed for end insertion?",
+            "options": ["Update head's prev pointer", "Update tail only", "No additional steps", "Remove all pointers"],
+            "answer": "Update head's prev pointer",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What is the time complexity of inserting a node at the start of a singly linked list?",
+            "options": ["O(n)", "O(1)", "O(log n)", "O(n²)"],
+            "answer": "O(1)",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "In a doubly linked list, how many pointer adjustments are needed for insertion at start?",
+            "options": ["2", "1", "3", "4"],
+            "answer": "3",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "Which of these is NOT required when inserting at the start of an empty linked list?",
+            "options": ["Update head", "Update tail", "Initialize node data", "Set previous pointer"],
+            "answer": "Set previous pointer",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "What happens to the existing head when inserting a new node at the start?",
+            "options": ["Becomes second node", "Gets deleted", "Remains head", "Becomes tail"],
+            "answer": "Becomes second node",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "When inserting at start in a circular linked list, which additional pointer needs updating?",
+            "options": ["Tail's next", "Middle node", "Random node", "No additional pointer"],
+            "answer": "Tail's next",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What's the space complexity for inserting at start?",
+            "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+            "answer": "O(1)",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "Which data structure operation is most similar to insertion at start?",
+            "options": ["Push in stack", "Enqueue in queue", "Binary tree insertion", "Array insertion"],
+            "answer": "Push in stack",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the main advantage of insertion at start compared to other positions?",
+            "options": ["Constant time", "Better memory usage", "Easier implementation", "Better cache performance"],
+            "answer": "Constant time",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "What is the time complexity of inserting at the middle of a linked list?",
+            "options": ["O(n)", "O(1)", "O(log n)", "O(n²)"],
+            "answer": "O(n)",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "How can you optimize finding the middle position for insertion?",
+            "options": ["Fast/slow pointers", "Binary search", "Hash table", "Array indexing"],
+            "answer": "Fast/slow pointers",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the minimum number of pointer updates needed for middle insertion?",
+            "options": ["2", "1", "3", "4"],
+            "answer": "2",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "In a doubly linked list, how many pointers need updating for middle insertion?",
+            "options": ["4", "2", "3", "1"],
+            "answer": "4",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's a potential risk when inserting in the middle?",
+            "options": ["Lost node connections", "Memory overflow", "Stack overflow", "Cache miss"],
+            "answer": "Lost node connections",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "Which traversal method is most efficient for middle insertion?",
+            "options": ["Iterative", "Recursive", "Jump search", "Binary search"],
+            "answer": "Iterative",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the best way to handle middle insertion in an empty list?",
+            "options": ["Treat as start insertion", "Return error", "Create two nodes", "Skip operation"],
+            "answer": "Treat as start insertion",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What's the time complexity of end insertion with a tail pointer?",
+            "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+            "answer": "O(1)",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "Without a tail pointer, how do you find the insertion point?",
+            "options": ["Traverse to null", "Binary search", "Hash lookup", "Random access"],
+            "answer": "Traverse to null",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "What's the main disadvantage of not having a tail pointer?",
+            "options": ["Linear time insertion", "More memory usage", "Complex implementation", "Pointer errors"],
+            "answer": "Linear time insertion",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "In a circular list, what indicates the end position?",
+            "options": ["Node pointing to head", "Null pointer", "Special flag", "Counter value"],
+            "answer": "Node pointing to head",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the space complexity of maintaining a tail pointer?",
+            "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+            "answer": "O(1)",
+            "topic": "Linked List",
+            "difficulty": "Easy"
+        },
+        {
+            "question": "Which insertion position typically requires the most pointer updates?",
+            "options": ["Middle", "Start", "End", "All same"],
+            "answer": "Middle",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the best insertion position for implementing a queue?",
+            "options": ["End", "Start", "Middle", "Random"],
+            "answer": "End",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "Which insertion position is best for implementing a stack?",
+            "options": ["Start", "End", "Middle", "Random"],
+            "answer": "Start",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the main advantage of using sentinel nodes?",
+            "options": ["Simplify edge cases", "Better performance", "Less memory", "Faster search"],
+            "answer": "Simplify edge cases",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "Which type of linked list requires the most pointer updates for insertion?",
+            "options": ["Doubly circular", "Singly", "Doubly", "Circular"],
+            "answer": "Doubly circular",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "How should insertion handle null input nodes?",
+            "options": ["Return error", "Create new node", "Ignore operation", "Modify existing"],
+            "answer": "Return error",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the best way to handle insertion at invalid positions?",
+            "options": ["Throw exception", "Insert at end", "Ignore operation", "Insert at start"],
+            "answer": "Throw exception",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "How should memory allocation failures be handled during insertion?",
+            "options": ["Return error code", "Retry operation", "Skip node", "Crash program"],
+            "answer": "Return error code",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "Which data structure can help optimize repeated insertions?",
+            "options": ["Hash table", "Array", "Tree", "Graph"],
+            "answer": "Hash table",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What's the best way to handle bulk insertions?",
+            "options": ["Batch processing", "One by one", "Recursive calls", "Parallel insertion"],
+            "answer": "Batch processing",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "How can cache performance be improved during insertion?",
+            "options": ["Sequential access", "Random access", "Binary search", "Jump search"],
+            "answer": "Sequential access",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "Which insertion position is best for LRU cache implementation?",
+            "options": ["Start", "End", "Middle", "Random"],
+            "answer": "Start",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What's the best insertion strategy for implementing a priority queue?",
+            "options": ["Sorted insertion", "Start insertion", "End insertion", "Random insertion"],
+            "answer": "Sorted insertion",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "Which insertion technique is best for maintaining a sorted list?",
+            "options": ["Ordered insertion", "Start insertion", "End insertion", "Random insertion"],
+            "answer": "Ordered insertion",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's needed for thread-safe insertion?",
+            "options": ["Locking mechanism", "No special handling", "Counter variable", "Double pointers"],
+            "answer": "Locking mechanism",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "Which insertion position is safest in a multi-threaded environment?",
+            "options": ["Start", "End", "Middle", "All same risk"],
+            "answer": "Start",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "What's the best way to handle memory deallocation during insertion?",
+            "options": ["Reference counting", "Manual deletion", "Garbage collection", "No handling needed"],
+            "answer": "Reference counting",
+            "topic": "Linked List",
+            "difficulty": "Hard"
+        },
+        {
+            "question": "How should memory be allocated for new nodes?",
+            "options": ["Dynamic allocation", "Static allocation", "Stack allocation", "Global variables"],
+            "answer": "Dynamic allocation",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "What's the most common bug in linked list insertion?",
+            "options": ["Lost node connections", "Memory leaks", "Wrong data", "Infinite loops"],
+            "answer": "Lost node connections",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        },
+        {
+            "question": "Best way to verify successful insertion?",
+            "options": ["Traverse and check", "Check head/tail", "Count nodes", "Check memory"],
+            "answer": "Traverse and check",
+            "topic": "Linked List",
+            "difficulty": "Medium"
+        }
+    ]
