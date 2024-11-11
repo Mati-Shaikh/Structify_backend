@@ -22,7 +22,20 @@ const questionSchema = new mongoose.Schema({
     type: String,
     enum: ['Easy', 'Medium', 'Hard'],
     default: 'Easy'
-  }
+  },
+  correctAnswer: { 
+    type: String, 
+    required: true 
+  },
+  // Optionally, add fields to track question creation and updates (timestamps)
+  createdAt: { 
+    type: Date, 
+    default: Date.now 
+  },
+  updatedAt: { 
+    type: Date, 
+    default: Date.now 
+  },
 });
 
 module.exports = mongoose.model('Question', questionSchema);

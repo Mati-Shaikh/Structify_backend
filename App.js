@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const questionRoutes = require("./routes/questionsRoute"); // Import question routes
+const userRoutes = require('./routes/userRoutes');
 const cors = require("cors");
 
 dotenv.config();
@@ -23,6 +24,7 @@ mongoose
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/questions", questionRoutes); // Register the question routes
+app.use('/api/users', userRoutes); // User routes for submitting answers
 
 // Start the server
 app.listen(process.env.PORT, () => {
