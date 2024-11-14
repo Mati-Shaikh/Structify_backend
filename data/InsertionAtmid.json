@@ -1,0 +1,172 @@
+[
+      {
+        "question": "How do you insert a node at a specific index in a singly linked list?",
+        "options": [
+          "Traverse to the index and update the next pointer",
+          "Delete the node at that index and reinsert",
+          "Change the head pointer",
+          "Insert the node at the end of the list"
+        ],
+        "answer": "Traverse to the index and update the next pointer",
+        "topic": "Linked List",
+        "difficulty": "Easy"
+      },
+      {
+        "question": "What must be done before inserting a node at index 0 in a singly linked list?",
+        "options": [
+          "Update the head pointer",
+          "Update the tail pointer",
+          "Find the last node",
+          "No changes are needed"
+        ],
+        "answer": "Update the head pointer",
+        "topic": "Linked List",
+        "difficulty": "Easy"
+      },
+      {
+        "question": "When inserting a node at a given index, what should the previous node's next pointer be updated to?",
+        "options": [
+          "The new node",
+          "The head pointer",
+          "Null",
+          "The last node"
+        ],
+        "answer": "The new node",
+        "topic": "Linked List",
+        "difficulty": "Easy"
+      },
+      {
+        "question": "If the index provided for insertion is greater than the length of the linked list, what should happen?",
+        "options": [
+          "Insert at the last node",
+          "Return an error",
+          "Do nothing",
+          "Create a new head"
+        ],
+        "answer": "Return an error",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "How is the linked list affected after inserting a node at an index in the middle of the list?",
+        "options": [
+          "Only the next pointer of the previous node is updated",
+          "The previous node and the new node are updated",
+          "Only the head pointer needs to be updated",
+          "All nodes in the list are affected"
+        ],
+        "answer": "Only the next pointer of the previous node is updated",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "What happens when inserting a node at an index in a singly linked list if the index is 0?",
+        "options": [
+          "The new node becomes the head of the list",
+          "The new node is appended to the end",
+          "The new node is inserted after the head node",
+          "Nothing happens"
+        ],
+        "answer": "The new node becomes the head of the list",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "Which of the following is true when inserting a node at the start of a singly linked list?",
+        "options": [
+          "The new node’s next pointer points to the head",
+          "The new node’s next pointer points to null",
+          "The head pointer is unchanged",
+          "Only the last node is affected"
+        ],
+        "answer": "The new node’s next pointer points to the head",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "Which pointer is updated when inserting a node at an index in a singly linked list?",
+        "options": [
+          "The head pointer only",
+          "The next pointer of the previous node",
+          "The tail pointer",
+          "The middle node's next pointer"
+        ],
+        "answer": "The next pointer of the previous node",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "What must be done to prevent a memory leak when inserting a node at a specific index in a singly linked list?",
+        "options": [
+          "Ensure the next pointer of the previous node is correctly updated",
+          "Make sure to delete the previous node",
+          "Ensure no pointers are left to null",
+          "Make sure to insert a node at the start"
+        ],
+        "answer": "Ensure the next pointer of the previous node is correctly updated",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "What is the first step when inserting a node at a given index in a singly linked list?",
+        "options": [
+          "Navigate to the index",
+          "Update the tail pointer",
+          "Insert the node at the head",
+          "Delete the node at that index"
+        ],
+        "answer": "Navigate to the index",
+        "topic": "Linked List",
+        "difficulty": "High"
+      },
+      {
+        "question": "When inserting a node at a specific index in a singly linked list, which condition should be checked before proceeding?",
+        "options": [
+          "Check if the index is valid",
+          "Check if the list is empty",
+          "Check if the node already exists at that index",
+          "Check if the head pointer is updated"
+        ],
+        "answer": "Check if the index is valid",
+        "topic": "Linked List",
+        "difficulty": "High"
+      },
+      {
+        "question": "When inserting a node at a specific index, what should be checked after updating the pointers?",
+        "options": [
+          "Ensure the next pointer of the inserted node is correctly set",
+          "Make sure no loops are present in the list",
+          "Ensure the tail pointer is updated",
+          "Verify the head pointer is correct"
+        ],
+        "answer": "Ensure the next pointer of the inserted node is correctly set",
+        "topic": "Linked List",
+        "difficulty": "High"
+      },
+      {
+        "question": "What will happen if the index provided is negative or exceeds the list length when inserting a node?",
+        "options": [
+          "An error will be raised",
+          "The node will be inserted at the end",
+          "The insertion will fail silently",
+          "The head pointer will be reset"
+        ],
+        "answer": "An error will be raised",
+        "topic": "Linked List",
+        "difficulty": "High"
+      },
+      {
+        "question": "What must you ensure if you’re inserting a node at index 1 in a singly linked list?",
+        "options": [
+          "The new node’s next pointer points to the second node",
+          "The new node is inserted after the head node",
+          "The head pointer is updated",
+          "Only the second node’s pointer is changed"
+        ],
+        "answer": "The new node’s next pointer points to the second node",
+        "topic": "Linked List",
+        "difficulty": "High"
+      }
+]
+
+  

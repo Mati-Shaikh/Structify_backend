@@ -15,13 +15,21 @@ if (!process.env.MONGODB_STRING) {
     process.exit(1);
 }
 
-// Load questions from JSON file with proper path resolution
-const questionsData = JSON.parse(
-    fs.readFileSync(
-        path.join(__dirname, '..', 'data', 'Insertionquestions.json'),
-        'utf-8'
-    )
-);
+// Load questions from multiple JSON files
+const loadQuestionsData = () => {
+    const startData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'InsertionAtstart.json'), 'utf-8')
+    );
+    const midData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'InsertionAtmid.json'), 'utf-8')
+    );
+    const endData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'InsertionAtend.json'), 'utf-8')
+    );
+
+    // Combine all data into one array
+    return [...startData, ...midData, ...endData];
+};
 
 // Seed the questions
 const seedQuestions = async () => {
@@ -37,7 +45,8 @@ const seedQuestions = async () => {
         await Question.deleteMany({});
         console.log('Cleared existing questions');
 
-        // Insert new questions
+        // Load and insert new questions from all JSON files
+        const questionsData = loadQuestionsData();
         await Question.insertMany(questionsData);
         console.log('Questions inserted successfully');
 
