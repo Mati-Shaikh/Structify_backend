@@ -1,5 +1,14 @@
 const Question = require("../models/Questions.schema");
 
+// Utility function to shuffle an array
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
 // Controller function to get specific random questions by topic
 const getRandomQuestionsByTopic = async (req, res) => {
   try {
@@ -12,7 +21,7 @@ const getRandomQuestionsByTopic = async (req, res) => {
           question: 1,
           answer: 1,
           options: 1,
-          _id: 1, // Exclude _id field
+          _id: 1, // Include _id field
         },
       },
     ]);
@@ -26,7 +35,7 @@ const getRandomQuestionsByTopic = async (req, res) => {
           question: 1,
           answer: 1,
           options: 1,
-          _id: 1, // Exclude _id field
+          _id: 1, // Include _id field
         },
       },
     ]);
@@ -40,17 +49,25 @@ const getRandomQuestionsByTopic = async (req, res) => {
           question: 1,
           options: 1,
           answer: 1,
-          _id: 1, // Exclude _id field
+          _id: 1, // Include _id field
         },
       },
     ]);
 
     // Combine all questions into a single array
-    const questions = [
+    let questions = [
       ...insertionAtStartQuestions,
       ...insertionAtMidQuestions,
       ...insertionAtEndQuestions,
     ];
+
+    // Shuffle options for each question
+    questions = questions.map((question) => {
+      if (question.options && Array.isArray(question.options)) {
+        question.options = shuffleArray(question.options);
+      }
+      return question;
+    });
 
     // Check if any questions were found
     if (questions.length === 0) {
