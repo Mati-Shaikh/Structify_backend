@@ -8,7 +8,7 @@
           "Insert the node at the end of the list"
         ],
         "answer": "Traverse to the index and update the next pointer",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Easy"
       },
       {
@@ -20,7 +20,7 @@
           "No changes are needed"
         ],
         "answer": "Update the head pointer",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Easy"
       },
       {
@@ -32,7 +32,7 @@
           "The last node"
         ],
         "answer": "The new node",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Easy"
       },
       {
@@ -44,7 +44,7 @@
           "Create a new head"
         ],
         "answer": "Return an error",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Medium"
       },
       {
@@ -56,7 +56,7 @@
           "All nodes in the list are affected"
         ],
         "answer": "Only the next pointer of the previous node is updated",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Medium"
       },
       {
@@ -68,7 +68,7 @@
           "Nothing happens"
         ],
         "answer": "The new node becomes the head of the list",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Medium"
       },
       {
@@ -80,7 +80,7 @@
           "Only the last node is affected"
         ],
         "answer": "The new node’s next pointer points to the head",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Medium"
       },
       {
@@ -92,7 +92,7 @@
           "The middle node's next pointer"
         ],
         "answer": "The next pointer of the previous node",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Medium"
       },
       {
@@ -104,7 +104,7 @@
           "Make sure to insert a node at the start"
         ],
         "answer": "Ensure the next pointer of the previous node is correctly updated",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "Medium"
       },
       {
@@ -116,7 +116,7 @@
           "Delete the node at that index"
         ],
         "answer": "Navigate to the index",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "High"
       },
       {
@@ -128,7 +128,7 @@
           "Check if the head pointer is updated"
         ],
         "answer": "Check if the index is valid",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "High"
       },
       {
@@ -140,7 +140,7 @@
           "Verify the head pointer is correct"
         ],
         "answer": "Ensure the next pointer of the inserted node is correctly set",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "High"
       },
       {
@@ -152,7 +152,7 @@
           "The head pointer will be reset"
         ],
         "answer": "An error will be raised",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "High"
       },
       {
@@ -164,7 +164,7 @@
           "Only the second node’s pointer is changed"
         ],
         "answer": "The new node’s next pointer points to the second node",
-        "topic": "Linked List",
+        "topic": "InsertionAtMid",
         "difficulty": "High"
       }
 ]

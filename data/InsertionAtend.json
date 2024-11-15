@@ -1,170 +1,170 @@
 [
-    {
-        "question": "In a singly linked list, what must be adjusted to insert a node at the end?",
-        "options": [
-            "Head pointer",
-            "Last node’s next pointer",
-            "Middle node pointer",
-            "None of the above"
-        ],
-        "answer": "Last node’s next pointer",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-    },
-    {
-        "question": "If inserting at the end of a sorted linked list, which step might be added?",
-        "options": [
-            "Checking order before insertion",
-            "Checking tail is null",
-            "Updating all nodes",
-            "Deleting duplicate nodes"
-        ],
-        "answer": "Checking order before insertion",
-        "topic": "Linked List",
-        "difficulty": "High"
-    },
-    {
-        "question": "If the list’s head is null, what does it mean for insertion at the end?",
-        "options": [
-            "The list is full",
-            "The list is empty",
-            "The insertion is impossible",
-            "All nodes need deletion"
-        ],
-        "answer": "The list is empty",
-        "topic": "Linked List",
-        "difficulty": "High"
-    },
-    {
-        "question": "For batch insertions at the end, what structure can improve efficiency?",
-        "options": [
-            "Using an array",
-            "Using a queue",
-            "Using a tail pointer",
-            "Using a recursive algorithm"
-        ],
-        "answer": "Using a tail pointer",
-        "topic": "Linked List",
-        "difficulty": "High"
-    },
-    {
-        "question": "When inserting a node at the end of a singly linked list, what is the first step if the list is empty?",
-        "options": [
-            "Set the new node as the head",
-            "Set the new node as the tail",
-            "Set the new node’s next pointer to null",
-            "Create a new head pointer"
-        ],
-        "answer": "Set the new node as the head",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-    },
-    {
-        "question": "Inserting a node at the end of a singly linked list requires finding which of the following?",
-        "options": [
-            "The last node",
-            "The second node",
-            "The head node",
-            "The node with a null value"
-        ],
-        "answer": "The last node",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-    },
-    {
-        "question": "If the list is non-empty, what must be updated when inserting at the end of the list?",
-        "options": [
-            "The next pointer of the last node",
-            "The head pointer",
-            "The tail pointer",
-            "All pointers of the nodes"
-        ],
-        "answer": "The next pointer of the last node",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "What happens to the last node’s next pointer when inserting a new node at the end of the list?",
-        "options": [
-            "It points to the new node",
-            "It points to null",
-            "It becomes a head pointer",
-            "It points to the second-to-last node"
-        ],
-        "answer": "It points to the new node",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "What is the impact of inserting a node at the end of a singly linked list if a tail pointer is used?",
-        "options": [
-            "The new node is inserted at the beginning",
-            "The insertion operation becomes faster",
-            "The last node’s next pointer is not updated",
-            "No impact; it behaves the same"
-        ],
-        "answer": "The insertion operation becomes faster",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "When inserting a node at the end of a singly linked list with no tail pointer, what is required?",
-        "options": [
-            "Traverse the entire list",
-            "Update the head pointer",
-            "Use recursion",
-            "Delete the last node first"
-        ],
-        "answer": "Traverse the entire list",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "What is the appropriate action when inserting a new node at the end of a singly linked list if the tail pointer exists?",
-        "options": [
-            "Set the tail pointer to the new node",
-            "Set the new node’s next pointer to null",
-            "Set the new node’s next pointer to the head",
-            "Only the head pointer needs to be updated"
-        ],
-        "answer": "Set the tail pointer to the new node",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "What should be done when inserting at the end of a singly linked list if the list is not empty but has no tail pointer?",
-        "options": [
-            "Traverse the list to find the last node",
-            "Change the head pointer to the new node",
-            "Only update the tail pointer",
-            "Set the last node’s next pointer to the new node"
-        ],
-        "answer": "Traverse the list to find the last node",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "What must be checked when inserting a node at the end of a singly linked list in a multi-threaded environment?",
-        "options": [
-            "Ensure proper synchronization of the list pointers",
-            "Check if the list is empty",
-            "Ensure the node’s data is unique",
-            "Check for memory allocation issues"
-        ],
-        "answer": "Ensure proper synchronization of the list pointers",
-        "topic": "Linked List",
-        "difficulty": "High"
-    },
-    {
-        "question": "When inserting at the end of a singly linked list, how can the list structure be preserved after insertion?",
-        "options": [
-            "By updating the next pointer of the last node",
-            "By deleting the last node before insertion",
-            "By traversing the list and copying nodes",
-            "By setting all nodes to null"
-        ],
-        "answer": "By updating the next pointer of the last node",
-        "topic": "Linked List",
-        "difficulty": "High"
-    }
+  {
+    "question": "In a singly linked list, what must be adjusted to insert a node at the end?",
+    "options": [
+      "Head pointer",
+      "Last node’s next pointer",
+      "Middle node pointer",
+      "None of the above"
+    ],
+    "answer": "Last node’s next pointer",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "If inserting at the end of a sorted linked list, which step might be added?",
+    "options": [
+      "Checking order before insertion",
+      "Checking tail is null",
+      "Updating all nodes",
+      "Deleting duplicate nodes"
+    ],
+    "answer": "Checking order before insertion",
+    "topic": "InsertionAtEnd",
+    "difficulty": "High"
+  },
+  {
+    "question": "If the list’s head is null, what does it mean for insertion at the end?",
+    "options": [
+      "The list is full",
+      "The list is empty",
+      "The insertion is impossible",
+      "All nodes need deletion"
+    ],
+    "answer": "The list is empty",
+    "topic": "InsertionAtEnd",
+    "difficulty": "High"
+  },
+  {
+    "question": "For batch insertions at the end, what structure can improve efficiency?",
+    "options": [
+      "Using an array",
+      "Using a queue",
+      "Using a tail pointer",
+      "Using a recursive algorithm"
+    ],
+    "answer": "Using a tail pointer",
+    "topic": "InsertionAtEnd",
+    "difficulty": "High"
+  },
+  {
+    "question": "When inserting a node at the end of a singly linked list, what is the first step if the list is empty?",
+    "options": [
+      "Set the new node as the head",
+      "Set the new node as the tail",
+      "Set the new node’s next pointer to null",
+      "Create a new head pointer"
+    ],
+    "answer": "Set the new node as the head",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Inserting a node at the end of a singly linked list requires finding which of the following?",
+    "options": [
+      "The last node",
+      "The second node",
+      "The head node",
+      "The node with a null value"
+    ],
+    "answer": "The last node",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "If the list is non-empty, what must be updated when inserting at the end of the list?",
+    "options": [
+      "The next pointer of the last node",
+      "The head pointer",
+      "The tail pointer",
+      "All pointers of the nodes"
+    ],
+    "answer": "The next pointer of the last node",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What happens to the last node’s next pointer when inserting a new node at the end of the list?",
+    "options": [
+      "It points to the new node",
+      "It points to null",
+      "It becomes a head pointer",
+      "It points to the second-to-last node"
+    ],
+    "answer": "It points to the new node",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What is the impact of inserting a node at the end of a singly linked list if a tail pointer is used?",
+    "options": [
+      "The new node is inserted at the beginning",
+      "The insertion operation becomes faster",
+      "The last node’s next pointer is not updated",
+      "No impact; it behaves the same"
+    ],
+    "answer": "The insertion operation becomes faster",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "When inserting a node at the end of a singly linked list with no tail pointer, what is required?",
+    "options": [
+      "Traverse the entire list",
+      "Update the head pointer",
+      "Use recursion",
+      "Delete the last node first"
+    ],
+    "answer": "Traverse the entire list",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What is the appropriate action when inserting a new node at the end of a singly linked list if the tail pointer exists?",
+    "options": [
+      "Set the tail pointer to the new node",
+      "Set the new node’s next pointer to null",
+      "Set the new node’s next pointer to the head",
+      "Only the head pointer needs to be updated"
+    ],
+    "answer": "Set the tail pointer to the new node",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What should be done when inserting at the end of a singly linked list if the list is not empty but has no tail pointer?",
+    "options": [
+      "Traverse the list to find the last node",
+      "Change the head pointer to the new node",
+      "Only update the tail pointer",
+      "Set the last node’s next pointer to the new node"
+    ],
+    "answer": "Traverse the list to find the last node",
+    "topic": "InsertionAtEnd",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What must be checked when inserting a node at the end of a singly linked list in a multi-threaded environment?",
+    "options": [
+      "Ensure proper synchronization of the list pointers",
+      "Check if the list is empty",
+      "Ensure the node’s data is unique",
+      "Check for memory allocation issues"
+    ],
+    "answer": "Ensure proper synchronization of the list pointers",
+    "topic": "InsertionAtEnd",
+    "difficulty": "High"
+  },
+  {
+    "question": "When inserting at the end of a singly linked list, how can the list structure be preserved after insertion?",
+    "options": [
+      "By updating the next pointer of the last node",
+      "By deleting the last node before insertion",
+      "By traversing the list and copying nodes",
+      "By setting all nodes to null"
+    ],
+    "answer": "By updating the next pointer of the last node",
+    "topic": "InsertionAtEnd",
+    "difficulty": "High"
+  }
 ]

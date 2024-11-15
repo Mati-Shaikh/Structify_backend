@@ -1,189 +1,184 @@
 [
-      {
-        "question": "What is the basic step to insert a node at the start of a singly linked list?",
-        "options": [
-          "Set the new node's next to head",
-          "Set head to the new node",
-          "Set the new node's next to NULL",
-          "Swap head with the new node"
-        ],
-        "answer": "Set the new node's next to head",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "Which pointer needs updating when inserting a node at the start of a singly linked list?",
-        "options": [
-          "The tail pointer",
-          "The next pointer of the last node",
-          "The head pointer",
-          "All pointers"
-        ],
-        "answer": "The head pointer",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "What should the new node's next pointer point to when adding at the start?",
-        "options": [
-          "The previous head node",
-          "NULL",
-          "The new node itself",
-          "The last node in the list"
-        ],
-        "answer": "The previous head node",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "How many pointers need updating in a singly linked list when inserting at the start?",
-        "options": ["One", "Two", "Three", "None"],
-        "answer": "One",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "If the linked list is empty, where will the head point after inserting at the start?",
-        "options": [
-          "The new node",
-          "NULL",
-          "The old head",
-          "The second node"
-        ],
-        "answer": "The new node",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "In a linked list, where does a new node go when inserted at the start?",
-        "options": [
-          "At the last position",
-          "At the first position",
-          "In the middle",
-          "It depends on the list size"
-        ],
-        "answer": "At the first position",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "When inserting at the start of a singly linked list, which node becomes the new head?",
-        "options": [
-          "The last node",
-          "The new node",
-          "The previous head",
-          "None of the above"
-        ],
-        "answer": "The new node",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "If a singly linked list has only one node, where will the new node go after inserting at the start?",
-        "options": [
-          "At the end",
-          "After the first node",
-          "Before the first node",
-          "It depends on the list size"
-        ],
-        "answer": "Before the first node",
-        "topic": "Linked List",
-        "difficulty": "Easy"
-      },
-      {
-        "question": "What is the effect of inserting a new node at the start of a sorted linked list?",
-        "options": [
-          "It maintains the sorted order",
-          "It makes the list unsorted",
-          "The list becomes cyclic",
-          "It doesn’t affect sorting"
-        ],
-        "answer": "It makes the list unsorted",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-      },
-      {
-        "question": "How does insertion at the start affect the original head node's position in the list?",
-        "options": [
-          "It becomes the last node",
-          "It shifts one position down",
-          "It’s unaffected",
-          "It points to NULL"
-        ],
-        "answer": "It shifts one position down",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-      },
-      {
-        "question": "How would you modify insertion at the start for a linked list with a maximum capacity?",
-        "options": [
-          "Insert only if size limit isn't exceeded",
-          "Use a new list",
-          "Delete the last node first",
-          "Insert at the end instead"
-        ],
-        "answer": "Insert only if size limit isn't exceeded",
-        "topic": "Linked List",
-        "difficulty": "Medium"
-      },
-      {
-        "question": "If a linked list is sorted, how would you adjust insertion at the start to maintain order?",
-        "options": [
-          "Insert only if smaller than head",
-          "Shift the head node",
-          "Insert at the end instead",
-          "It’s impossible"
-        ],
-        "answer": "Insert only if smaller than head",
-        "topic": "Linked List",
-        "difficulty": "High"
-      },
-      {
-        "question": "In cases of concurrent modification, how is inserting at the start impacted?",
-        "options": [
-          "It risks losing data",
-          "It speeds up modification",
-          "No impact",
-          "It ensures data integrity"
-        ],
-        "answer": "It risks losing data",
-        "topic": "Linked List",
-        "difficulty": "High"
-      },
-      {
-        "question": "Which pointer adjustments prevent memory leaks during insertion at the start?",
-        "options": [
-          "Tail adjustments",
-          "Using temp pointers",
-          "Head swaps",
-          "Avoiding garbage collection"
-        ],
-        "answer": "Using temp pointers",
-        "topic": "Linked List",
-        "difficulty": "High"
-      },
-      {
-        "question": "What happens if memory allocation fails during an insertion at the start?",
-        "options": [
-          "Program crashes",
-          "Memory leak",
-          "Head remains unchanged",
-          "All of the above"
-        ],
-        "answer": "All of the above",
-        "topic": "Linked List",
-        "difficulty": "High"
-      },
-      {
-        "question": "Which structures would you need to modify for batch insertion at the start?",
-        "options": [
-          "Head and temp nodes",
-          "Only head",
-          "Tail and head",
-          "All nodes in list"
-        ],
-        "answer": "Head and temp nodes",
-        "topic": "Linked List",
-        "difficulty": "High"
-      }
-    ]
+  {
+    "question": "What is the basic step to insert a node at the start of a singly linked list?",
+    "options": [
+      "Set the new node's next to head",
+      "Set head to the new node",
+      "Set the new node's next to NULL",
+      "Swap head with the new node"
+    ],
+    "answer": "Set the new node's next to head",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which pointer needs updating when inserting a node at the start of a singly linked list?",
+    "options": [
+      "The tail pointer",
+      "The next pointer of the last node",
+      "The head pointer",
+      "All pointers"
+    ],
+    "answer": "The head pointer",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "What should the new node's next pointer point to when adding at the start?",
+    "options": [
+      "The previous head node",
+      "NULL",
+      "The new node itself",
+      "The last node in the list"
+    ],
+    "answer": "The previous head node",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "How many pointers need updating in a singly linked list when inserting at the start?",
+    "options": ["One", "Two", "Three", "None"],
+    "answer": "One",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "If the linked list is empty, where will the head point after inserting at the start?",
+    "options": ["The new node", "NULL", "The old head", "The second node"],
+    "answer": "The new node",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "In a linked list, where does a new node go when inserted at the start?",
+    "options": [
+      "At the last position",
+      "At the first position",
+      "In the middle",
+      "It depends on the list size"
+    ],
+    "answer": "At the first position",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "When inserting at the start of a singly linked list, which node becomes the new head?",
+    "options": [
+      "The last node",
+      "The new node",
+      "The previous head",
+      "None of the above"
+    ],
+    "answer": "The new node",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "If a singly linked list has only one node, where will the new node go after inserting at the start?",
+    "options": [
+      "At the end",
+      "After the first node",
+      "Before the first node",
+      "It depends on the list size"
+    ],
+    "answer": "Before the first node",
+    "topic": "InsertionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "What is the effect of inserting a new node at the start of a sorted linked list?",
+    "options": [
+      "It maintains the sorted order",
+      "It makes the list unsorted",
+      "The list becomes cyclic",
+      "It doesn’t affect sorting"
+    ],
+    "answer": "It makes the list unsorted",
+    "topic": "InsertionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "How does insertion at the start affect the original head node's position in the list?",
+    "options": [
+      "It becomes the last node",
+      "It shifts one position down",
+      "It’s unaffected",
+      "It points to NULL"
+    ],
+    "answer": "It shifts one position down",
+    "topic": "InsertionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "How would you modify insertion at the start for a linked list with a maximum capacity?",
+    "options": [
+      "Insert only if size limit isn't exceeded",
+      "Use a new list",
+      "Delete the last node first",
+      "Insert at the end instead"
+    ],
+    "answer": "Insert only if size limit isn't exceeded",
+    "topic": "InsertionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "If a linked list is sorted, how would you adjust insertion at the start to maintain order?",
+    "options": [
+      "Insert only if smaller than head",
+      "Shift the head node",
+      "Insert at the end instead",
+      "It’s impossible"
+    ],
+    "answer": "Insert only if smaller than head",
+    "topic": "InsertionAtStart",
+    "difficulty": "High"
+  },
+  {
+    "question": "In cases of concurrent modification, how is inserting at the start impacted?",
+    "options": [
+      "It risks losing data",
+      "It speeds up modification",
+      "No impact",
+      "It ensures data integrity"
+    ],
+    "answer": "It risks losing data",
+    "topic": "InsertionAtStart",
+    "difficulty": "High"
+  },
+  {
+    "question": "Which pointer adjustments prevent memory leaks during insertion at the start?",
+    "options": [
+      "Tail adjustments",
+      "Using temp pointers",
+      "Head swaps",
+      "Avoiding garbage collection"
+    ],
+    "answer": "Using temp pointers",
+    "topic": "InsertionAtStart",
+    "difficulty": "High"
+  },
+  {
+    "question": "What happens if memory allocation fails during an insertion at the start?",
+    "options": [
+      "Program crashes",
+      "Memory leak",
+      "Head remains unchanged",
+      "All of the above"
+    ],
+    "answer": "All of the above",
+    "topic": "InsertionAtStart",
+    "difficulty": "High"
+  },
+  {
+    "question": "Which structures would you need to modify for batch insertion at the start?",
+    "options": [
+      "Head and temp nodes",
+      "Only head",
+      "Tail and head",
+      "All nodes in list"
+    ],
+    "answer": "Head and temp nodes",
+    "topic": "InsertionAtStart",
+    "difficulty": "High"
+  }
+]
