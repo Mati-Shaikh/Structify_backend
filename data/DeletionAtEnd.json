@@ -1,0 +1,161 @@
+[
+    {
+      "question": "What is the basic step to delete a node at the end of a singly linked list?",
+      "options": [
+        "Traverse to the second-to-last node and update its next pointer to NULL",
+        "Set head to NULL",
+        "Delete the tail pointer",
+        "Update the head pointer to the next node"
+      ],
+      "answer": "Traverse to the second-to-last node and update its next pointer to NULL",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Which pointer needs updating when deleting a node at the end of a linked list?",
+      "options": [
+        "The tail pointer",
+        "The next pointer of the second-to-last node",
+        "The head pointer",
+        "All pointers"
+      ],
+      "answer": "The next pointer of the second-to-last node",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What should the second-to-last node's next pointer point to after deleting the last node?",
+      "options": [
+        "NULL",
+        "The new tail",
+        "The deleted node",
+        "The head node"
+      ],
+      "answer": "NULL",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "How many pointers need updating in a linked list when deleting at the end?",
+      "options": ["One", "Two", "Three", "None"],
+      "answer": "One",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "If the linked list has only one node, where will the head point after deleting the last node?",
+      "options": ["NULL", "The second node", "The deleted node", "The new node"],
+      "answer": "NULL",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In a linked list, which node is removed when deleting at the end?",
+      "options": [
+        "The last node",
+        "The first node",
+        "The middle node",
+        "It depends on the list size"
+      ],
+      "answer": "The last node",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "If a linked list has only one node, where does the head point after deletion?",
+      "options": [
+        "NULL",
+        "To the previous head",
+        "To the tail",
+        "It depends on the list size"
+      ],
+      "answer": "NULL",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "How does deletion at the end affect the second-to-last node's next pointer in a linked list?",
+      "options": [
+        "It is set to NULL",
+        "It points to the head node",
+        "It’s unaffected",
+        "It points to itself"
+      ],
+      "answer": "It is set to NULL",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What happens to the last node when it is deleted from a linked list?",
+      "options": [
+        "It is removed and its memory is freed",
+        "It becomes the new head",
+        "It points to NULL",
+        "It is merged with the previous node"
+      ],
+      "answer": "It is removed and its memory is freed",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the correct sequence of steps to delete a node at the end?",
+      "options": [
+        "Traverse to the second-to-last node, update its next pointer, remove the last node",
+        "Update the tail pointer, then delete the node",
+        "Delete the node and then update the head pointer",
+        "Update all pointers, then remove the node"
+      ],
+      "answer": "Traverse to the second-to-last node, update its next pointer, remove the last node",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What should you do before updating the tail pointer when deleting the last node?",
+      "options": [
+        "Traverse to the second-to-last node",
+        "Delete the head node",
+        "Initialize all other pointers",
+        "Set the new tail's next to NULL"
+      ],
+      "answer": "Traverse to the second-to-last node",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "Which is true after deleting the last node in a linked list?",
+      "options": [
+        "The second-to-last node becomes the last node",
+        "The head points to NULL",
+        "The list remains unchanged",
+        "The head and tail are swapped"
+      ],
+      "answer": "The second-to-last node becomes the last node",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "How do you handle the deletion of the last node in a linked list with only one node?",
+      "options": [
+        "Set the head pointer to NULL",
+        "Update the tail pointer",
+        "Set both head and tail to NULL",
+        "Remove all nodes"
+      ],
+      "answer": "Set the head pointer to NULL",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the initial state of the second-to-last node's next pointer before deleting the last node?",
+      "options": [
+        "It points to the last node",
+        "It is NULL",
+        "It points to the tail",
+        "It is undefined"
+      ],
+      "answer": "It points to the last node",
+      "topic": "DeletionAtEnd",
+      "difficulty": "Easy"
+    }
+  ]
+  

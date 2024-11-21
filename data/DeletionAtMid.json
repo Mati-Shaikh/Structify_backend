@@ -1,0 +1,207 @@
+[
+    {
+      "question": "How do you delete a node at a specific index in a linked list?",
+      "options": [
+        "Traverse to the index and update the previous node's next pointer",
+        "Reinsert a new node at that index",
+        "Change the head pointer",
+        "Delete the node at the end of the list"
+      ],
+      "answer": "Traverse to the index and update the previous node's next pointer",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What must be done before deleting a node at index 0 in a linked list?",
+      "options": [
+        "Update the head pointer",
+        "Update the tail pointer",
+        "Find the last node",
+        "No changes are needed"
+      ],
+      "answer": "Update the head pointer",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "When deleting a node at a given index, what should the previous node's next pointer be updated to?",
+      "options": [
+        "The node after the deleted node",
+        "The head pointer",
+        "Null",
+        "The last node"
+      ],
+      "answer": "The node after the deleted node",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "If the index provided for deletion is greater than the length of the linked list, what should happen?",
+      "options": [
+        "Delete the last node",
+        "Return an error",
+        "Do nothing",
+        "Remove the head pointer"
+      ],
+      "answer": "Return an error",
+      "topic": "DeletionAtMid",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "How is the linked list affected after deleting a node at an index in the middle of the list?",
+      "options": [
+        "Only the next pointer of the previous node is updated",
+        "The previous node and the next node are updated",
+        "Only the head pointer needs to be updated",
+        "All nodes in the list are affected"
+      ],
+      "answer": "Only the next pointer of the previous node is updated",
+      "topic": "DeletionAtMid",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What happens when deleting a node at an index in a linked list if the index is 0?",
+      "options": [
+        "The head pointer is updated to the next node",
+        "The last node becomes the head",
+        "The list remains unchanged",
+        "Nothing happens"
+      ],
+      "answer": "The head pointer is updated to the next node",
+      "topic": "DeletionAtMid",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "Which of the following is true when deleting a node at the start of a linked list?",
+      "options": [
+        "The head pointer is updated to the second node",
+        "The head pointer remains unchanged",
+        "The new node is added in its place",
+        "Only the last node is affected"
+      ],
+      "answer": "The head pointer is updated to the second node",
+      "topic": "DeletionAtMid",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "Which pointer is updated when deleting a node at an index in a linked list?",
+      "options": [
+        "The head pointer only",
+        "The next pointer of the previous node",
+        "The tail pointer",
+        "The middle node's pointer"
+      ],
+      "answer": "The next pointer of the previous node",
+      "topic": "DeletionAtMid",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the first step when deleting a node at a given index in a linked list?",
+      "options": [
+        "Navigate to the index",
+        "Update the tail pointer",
+        "Remove the node at the head",
+        "Insert a new node at that index"
+      ],
+      "answer": "Navigate to the index",
+      "topic": "DeletionAtMid",
+      "difficulty": "High"
+    },
+    {
+      "question": "When deleting a node at a specific index in a linked list, which condition should be checked before proceeding?",
+      "options": [
+        "Check if the index is valid",
+        "Check if the list is empty",
+        "Check if the node exists at that index",
+        "Check if the head pointer is updated"
+      ],
+      "answer": "Check if the index is valid",
+      "topic": "DeletionAtMid",
+      "difficulty": "High"
+    },
+    {
+      "question": "When deleting a node at a specific index, what should be checked after updating the pointers?",
+      "options": [
+        "Ensure the next pointer of the previous node is correctly set",
+        "Make sure no loops are present in the list",
+        "Ensure the tail pointer is updated",
+        "Verify the head pointer is correct"
+      ],
+      "answer": "Ensure the next pointer of the previous node is correctly set",
+      "topic": "DeletionAtMid",
+      "difficulty": "High"
+    },
+    {
+      "question": "What is required to correctly delete a node at a given index in a linked list?",
+      "options": [
+        "The current head and tail pointers",
+        "The node at the previous index",
+        "The next pointer of the last node",
+        "The previous and next pointers of all nodes"
+      ],
+      "answer": "The node at the previous index",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the role of the previous node's next pointer when deleting a node at an index in the middle?",
+      "options": [
+        "To skip the node being deleted",
+        "To point to the deleted node",
+        "To point to the head",
+        "To point to NULL"
+      ],
+      "answer": "To skip the node being deleted",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What should you ensure after traversing to the index where a node is to be deleted?",
+      "options": [
+        "The previous node's next pointer is accessible",
+        "The head pointer is nullified",
+        "All nodes are rearranged",
+        "The tail pointer is reset"
+      ],
+      "answer": "The previous node's next pointer is accessible",
+      "topic": "DeletionAtMid",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What happens to the node at the specified index after it is deleted?",
+      "options": [
+        "It is skipped by the previous node's next pointer",
+        "It becomes the new head",
+        "It is merged with the next node",
+        "It points to the last node"
+      ],
+      "answer": "It is skipped by the previous node's next pointer",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Which of the following must be done before deleting a node at a middle index?",
+      "options": [
+        "Traverse to the node at the previous index",
+        "Update the tail pointer",
+        "Reinitialize the head pointer",
+        "Remove the last node"
+      ],
+      "answer": "Traverse to the node at the previous index",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What should the previous node's next pointer be set to when deleting a node in the middle?",
+      "options": [
+        "The node after the deleted node",
+        "The head pointer",
+        "The tail pointer",
+        "NULL"
+      ],
+      "answer": "The node after the deleted node",
+      "topic": "DeletionAtMid",
+      "difficulty": "Easy"
+    }
+  ]
+  

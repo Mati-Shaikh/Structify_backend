@@ -1,0 +1,153 @@
+[
+  {
+    "question": "In a singly linked list, what must be adjusted to delete a node at the start?",
+    "options": [
+      "Head pointer",
+      "Last node’s next pointer",
+      "Middle node pointer",
+      "None of the above"
+    ],
+    "answer": "Head pointer",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "If the list’s head is null, what does it mean for deletion at the start?",
+    "options": [
+      "The list is full",
+      "The list is empty",
+      "The deletion is impossible",
+      "All nodes need deletion"
+    ],
+    "answer": "The list is empty",
+    "topic": "DeletionAtStart",
+    "difficulty": "High"
+  },
+  {
+    "question": "When deleting a node at the start of a singly linked list, what is the first step if the list is empty?",
+    "options": [
+      "Return an error or do nothing",
+      "Set the next node as the head",
+      "Update the head pointer to null",
+      "Create a new head pointer"
+    ],
+    "answer": "Return an error or do nothing",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Deleting a node at the start of a singly linked list requires updating which of the following?",
+    "options": [
+      "The head pointer",
+      "The last node",
+      "The middle node",
+      "The node with a null value"
+    ],
+    "answer": "The head pointer",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "If the list is non-empty, what must be updated when deleting the first node in the list?",
+    "options": [
+      "The head pointer to the next node",
+      "The last node's next pointer",
+      "The tail pointer",
+      "All pointers of the nodes"
+    ],
+    "answer": "The head pointer to the next node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What happens to the head pointer when deleting the first node in the list?",
+    "options": [
+      "It points to the second node",
+      "It points to null",
+      "It becomes the tail pointer",
+      "It remains unchanged"
+    ],
+    "answer": "It points to the second node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which condition must be checked before deleting a node at the start of a singly linked list?",
+    "options": [
+      "If the list is empty",
+      "If the head is null",
+      "If the tail is null",
+      "If the first node has a null pointer"
+    ],
+    "answer": "If the list is empty",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "What is the first step when deleting a node at the start of a non-empty singly linked list?",
+    "options": [
+      "Update the head pointer to the next node",
+      "Delete the current head node",
+      "Set the head to null",
+      "Initialize the list to null"
+    ],
+    "answer": "Update the head pointer to the next node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "After deleting the first node in the list, what does the head pointer become?",
+    "options": [
+      "It points to the second node",
+      "It points to null",
+      "It points to the last node",
+      "It points to the middle node"
+    ],
+    "answer": "It points to the second node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "When the first node is deleted, which pointer is updated?",
+    "options": [
+      "The head pointer",
+      "The last node’s pointer",
+      "The middle node’s pointer",
+      "The deleted node’s pointer"
+    ],
+    "answer": "The head pointer",
+    "topic": "DeletionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which pointer becomes irrelevant after deleting the first node in a singly linked list?",
+    "options": [
+      "The pointer of the deleted node",
+      "The previous node’s pointer",
+      "The head pointer",
+      "The tail pointer"
+    ],
+    "answer": "The pointer of the deleted node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "What is the final step when deleting a node at the start of a singly linked list?",
+    "options": [
+      "Update the head pointer to the next node",
+      "Set the next node's pointer to null",
+      "Update the tail pointer",
+      "Delete the tail pointer"
+    ],
+    "answer": "Update the head pointer to the next node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What should the head pointer point to after the first node is deleted in a singly linked list?",
+    "options": ["The second node", "Null", "The last node", "The tail pointer"],
+    "answer": "The second node",
+    "topic": "DeletionAtStart",
+    "difficulty": "Easy"
+  }
+]
