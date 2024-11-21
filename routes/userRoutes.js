@@ -4,10 +4,10 @@ const { submitAnswers, ProtectedRouteForAssessment, ShowInitialQuestions, SetSho
 const verifyToken = require("./authentication");
 
 // Route to get 10 random questions without correct answers
-router.get('/random', getRandomQuestionsByTopic);
+router.get('/random', verifyToken, getRandomQuestionsByTopic);
 
 // Route to submit answers and calculate the score
-router.post('/submit-answers', submitAnswers);
+router.post('/submitAnswers', verifyToken, submitAnswers);
 
 router.post('/protectedRouteAssessment', verifyToken, ProtectedRouteForAssessment );
 
