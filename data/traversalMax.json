@@ -1,0 +1,231 @@
+[
+        {
+          "question": "How is the maximum value calculated during the traversal of a linked list?",
+          "options": [
+            "By comparing the current node's value with a stored maximum value",
+            "By summing up all node values",
+            "By counting the total number of nodes",
+            "By traversing the list twice"
+          ],
+          "answer": "By comparing the current node's value with a stored maximum value",
+          "topic": "Traversal Max",
+          "difficulty": "Easy"
+        },
+        {
+          "question": "What is the first step in finding the maximum value in a linked list?",
+          "options": [
+            "Initialize a variable to the smallest possible value",
+            "Initialize a variable to the first node's value",
+            "Add all node values together",
+            "Traverse the list in reverse order"
+          ],
+          "answer": "Initialize a variable to the first node's value",
+          "topic": "Traversal Max",
+          "difficulty": "Easy"
+        },
+        {
+          "question": "While traversing the list, what do you do if the current node's value is greater than the stored maximum value?",
+          "options": [
+            "Update the maximum value with the current node's value",
+            "Skip the current node",
+            "Stop traversing the list",
+            "Continue without updating"
+          ],
+          "answer": "Update the maximum value with the current node's value",
+          "topic": "Traversal Max",
+          "difficulty": "Medium"
+        },
+        {
+          "question": "What happens if the linked list contains only one node?",
+          "options": [
+            "The maximum value is the value of the single node",
+            "The maximum value is 0",
+            "You cannot calculate the maximum value",
+            "You need to traverse the list twice to find the maximum"
+          ],
+          "answer": "The maximum value is the value of the single node",
+          "topic": "Traversal Max",
+          "difficulty": "Easy"
+        },
+        {
+          "question": "How do you ensure all nodes are visited while calculating the maximum value in a linked list?",
+          "options": [
+            "Traverse the list starting from the head node until the end",
+            "Use recursion to find the maximum value",
+            "Skip every second node during traversal",
+            "Traverse the list from the tail node to the head node"
+          ],
+          "answer": "Traverse the list starting from the head node until the end",
+          "topic": "Traversal Max",
+          "difficulty": "Medium"
+        },      
+    {
+      "question": "The linked list contains the nodes: 1(5) -> 2(2) -> 3(1). What is the maximum value in the list?",
+      "options": ["5", "2", "1", "3"],
+      "answer": "5",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(3) -> 2(8) -> 3(4). What is the maximum value in the list?",
+      "options": ["3", "4", "8", "5"],
+      "answer": "8",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(7) -> 2(2). What is the maximum value in the list?",
+      "options": ["2", "7", "1", "5"],
+      "answer": "7",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(9) -> 2(4) -> 3(6). What is the maximum value in the list?",
+      "options": ["4", "6", "9", "5"],
+      "answer": "9",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(1) -> 2(1) -> 3(1). What is the maximum value in the list?",
+      "options": ["1", "2", "3", "0"],
+      "answer": "1",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(12) -> 2(5) -> 3(6). What is the maximum value in the list?",
+      "options": ["5", "6", "12", "8"],
+      "answer": "12",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(0) -> 2(0) -> 3(0). What is the maximum value in the list?",
+      "options": ["0", "1", "2", "3"],
+      "answer": "0",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(11) -> 2(20) -> 3(15). What is the maximum value in the list?",
+      "options": ["11", "20", "15", "10"],
+      "answer": "20",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(2) -> 2(10). What is the maximum value in the list?",
+      "options": ["2", "10", "5", "8"],
+      "answer": "10",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(6) -> 2(3) -> 3(9). What is the maximum value in the list?",
+      "options": ["6", "3", "9", "8"],
+      "answer": "9",
+      "topic": "Traversal Max",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(5) -> 2(8) -> 3(7) -> 4(2). What is the maximum value in the list?",
+      "options": ["5", "7", "8", "2"],
+      "answer": "8",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(14) -> 2(13) -> 3(12). What is the maximum value in the list?",
+      "options": ["12", "13", "14", "11"],
+      "answer": "14",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(10) -> 2(5) -> 3(6) -> 4(4). What is the maximum value in the list?",
+      "options": ["4", "5", "6", "10"],
+      "answer": "10",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(3) -> 2(6) -> 3(3) -> 4(9). What is the maximum value in the list?",
+      "options": ["3", "6", "9", "4"],
+      "answer": "9",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(7) -> 2(2) -> 3(15) -> 4(10). What is the maximum value in the list?",
+      "options": ["7", "10", "15", "2"],
+      "answer": "15",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(20) -> 2(5) -> 3(10) -> 4(30). What is the maximum value in the list?",
+      "options": ["10", "20", "30", "5"],
+      "answer": "30",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(50) -> 2(40) -> 3(30) -> 4(20). What is the maximum value in the list?",
+      "options": ["50", "40", "30", "20"],
+      "answer": "50",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(25) -> 2(15) -> 3(10) -> 4(35). What is the maximum value in the list?",
+      "options": ["25", "35", "15", "10"],
+      "answer": "35",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(9) -> 2(8) -> 3(7) -> 4(6). What is the maximum value in the list?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "9",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(100) -> 2(200) -> 3(300). What is the maximum value in the list?",
+      "options": ["100", "200", "300", "400"],
+      "answer": "300",
+      "topic": "Traversal Max",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(99) -> 2(88) -> 3(77) -> 4(150). What is the maximum value in the list?",
+      "options": ["77", "88", "99", "150"],
+      "answer": "150",
+      "topic": "Traversal Max",
+      "difficulty": "High"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(12) -> 2(14) -> 3(15) -> 4(13). What is the maximum value in the list?",
+      "options": ["12", "13", "14", "15"],
+      "answer": "15",
+      "topic": "Traversal Max",
+      "difficulty": "High"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(9) -> 2(13) -> 3(7) -> 4(20). What is the maximum value in the list?",
+      "options": ["13", "20", "9", "7"],
+      "answer": "20",
+      "topic": "Traversal Max",
+      "difficulty": "High"
+    },
+    {
+      "question": "The linked list contains the nodes: 1(150) -> 2(300) -> 3(200). What is the maximum value in the list?",
+      "options": ["150", "300", "200", "250"],
+      "answer": "300",
+      "topic": "Traversal Max",
+      "difficulty": "High"
+    }
+  ]
+  
