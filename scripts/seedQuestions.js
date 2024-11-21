@@ -17,18 +17,36 @@ if (!process.env.MONGODB_STRING) {
 
 // Load questions from multiple JSON files
 const loadQuestionsData = () => {
-    const startData = JSON.parse(
+    const insertionStartData = JSON.parse(
         fs.readFileSync(path.join(__dirname, '..', 'data', 'InsertionAtstart.json'), 'utf-8')
     );
-    const midData = JSON.parse(
+    const insertionMidData = JSON.parse(
         fs.readFileSync(path.join(__dirname, '..', 'data', 'InsertionAtmid.json'), 'utf-8')
     );
-    const endData = JSON.parse(
+    const insertionEndData = JSON.parse(
         fs.readFileSync(path.join(__dirname, '..', 'data', 'InsertionAtend.json'), 'utf-8')
+    );
+    const deletionStartData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'DeletionAtStart.json'), 'utf-8')
+    );
+    const deletionMidData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'DeletionAtMid.json'), 'utf-8')
+    );
+    const deletionEndData = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'DeletionAtEnd.json'), 'utf-8')
+    );
+    const traversalCount = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'traversalCount.json'), 'utf-8')
+    );
+    const traversalMax = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'traversalMax.json'), 'utf-8')
+    );
+    const traversalSum = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '..', 'data', 'traversalSum.json'), 'utf-8')
     );
 
     // Combine all data into one array
-    return [...startData, ...midData, ...endData];
+    return [...insertionStartData, ...insertionMidData, ...insertionEndData, ...deletionStartData, ...deletionMidData, ...deletionEndData, ...traversalCount, ...traversalMax, ...traversalSum];
 };
 
 // Seed the questions
