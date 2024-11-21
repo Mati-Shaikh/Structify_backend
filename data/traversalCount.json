@@ -1,0 +1,108 @@
+[
+    {
+      "question": "What is the starting node of a linked list called?",
+      "options": ["Root", "Head", "Tail", "Node"],
+      "answer": "Head",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the purpose of traversal in a linked list?",
+      "options": ["To sort nodes", "To reverse nodes", "To access all nodes", "To delete nodes"],
+      "answer": "To access all nodes",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Which of the following is required to traverse a singly linked list?",
+      "options": ["A counter", "A pointer", "An array", "A stack"],
+      "answer": "A pointer",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What should the pointer point to for traversal to stop?",
+      "options": ["Head", "Tail", "Next node", "Null"],
+      "answer": "Null",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In a singly linked list, how is the next node accessed?",
+      "options": ["node.prev", "node.next", "node.child", "node.link"],
+      "answer": "node.next",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "How is the length of a linked list found during traversal?",
+      "options": ["Using a length property", "By iterating through all nodes", "By counting null pointers", "By dividing nodes by 2"],
+      "answer": "By iterating through all nodes",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What happens if a traversal is attempted on an empty linked list?",
+      "options": ["It throws an error", "The traversal does nothing", "It enters an infinite loop", "It creates a new node"],
+      "answer": "The traversal does nothing",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "How many pointers are needed to traverse a linked list?",
+      "options": ["One", "Two", "Three", "None"],
+      "answer": "One",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What does the last node in a  linked list point to?",
+      "options": ["Head", "Itself", "Null", "Next node"],
+      "answer": "Null",
+      "topic": "Linked List",
+      "difficulty": "Easy"
+    },
+      {
+        "question": "Which condition indicates the end of traversal in a linked list?",
+        "options": ["Pointer is null", "Pointer is head", "Pointer is tail", "Pointer loops back"],
+        "answer": "Pointer is null",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "What is a common error during linked list traversal?",
+        "options": ["Accessing null pointer", "Infinite loop", "Accessing tail pointer", "Both 1 and 2"],
+        "answer": "Both 1 and 2",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "How can you count nodes during traversal?",
+        "options": ["Using a counter variable", "Using the head node", "Using a tail pointer", "Using recursion"],
+        "answer": "Using a counter variable",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "How can a node be skipped during traversal?",
+        "options": ["Move pointer to node.next.next", "Delete the node", "Loop back to head", "Point to tail"],
+        "answer": "Move pointer to node.next.next",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "Can you traverse a linked list backward?",
+        "options": ["Yes, with a stack", "No, only forward", "Yes, with recursion", "Yes, by reversing the list"],
+        "answer": "No, only forward",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      },
+      {
+        "question": "What is the output of traversal for a linked list with nodes {1, 2, 3}?",
+        "options": ["3 -> 2 -> 1", "1 -> 2 -> 3", "Null", "Error"],
+        "answer": "1 -> 2 -> 3",
+        "topic": "Linked List",
+        "difficulty": "Medium"
+      }
+  ]
+  
