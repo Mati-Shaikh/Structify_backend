@@ -2,21 +2,19 @@ const Question = require('../models/Questions.schema');
 const UserProgress = require('../models/UserProgress.schema'); 
 const Student = require('../models/Student.schema');
 const mongoose = require('mongoose');
+const learningPath = require('./learningPath');
 
 const ProtectedRouteForAssessment = async (req, res) => {
   try {
-    // Step 1: Validate userId using the existing protected route logic
-    const { userId, assessmentName } = req.body;
+    // Validate userId using the existing protected route logic
+    const { userId, assessmentId } = req.body;
+
     const decodedUserId = res.locals.userId; // The ID from the decoded token
 
     if (decodedUserId !== userId) {
       return res.status(401).json({ message: 'Access denied: Invalid user ID' });
     }
 
-    // Step 2: Check if the assessment name is correct
-    if (assessmentName !== 'LinkedListInsertion') {
-      return res.status(400).json({ message: 'Invalid assessment name' });
-    }
 
     // Validate and convert userId to ObjectId
     let validUserId;
@@ -29,7 +27,7 @@ const ProtectedRouteForAssessment = async (req, res) => {
       });
     }
 
-    // Step 3: Retrieve user progress with more flexible querying
+    // Retrieve user progress with more flexible querying
     const userProgress = await UserProgress.findOne({ 
       student: validUserId 
     });
@@ -40,46 +38,43 @@ const ProtectedRouteForAssessment = async (req, res) => {
       return res.status(404).json({ message: 'Progress not found' });
     }
 
-    // Required levels for the assessment
-    const requiredLevels = [
-      { levelNumber: 1, levelName: 'InsertionAtFront' },
-      { levelNumber: 2, levelName: 'InsertionAtEnd' },
-      { levelNumber: 3, levelName: 'InsertionInMiddle' }
-    ];
+    const numericAssessmentId = parseInt(assessmentId, 10);
+    if (isNaN(numericAssessmentId)) {
+      return res.status(400).json({ message: 'Invalid assessment ID format' });
+    }
 
-    // Check if all required levels are completed
-    const completedLevels = userProgress.levelsCompleted || [];
-    const isAccessAllowed = requiredLevels.every(level =>
-      completedLevels.some(
-        completed => 
-          completed.levelNumber === level.levelNumber && 
-          completed.levelName === level.levelName
-      )
-    );
+    // Find the assessment in the learning path
+    const learningPath = userProgress.learningPath || { topics: [] };
 
-    if (!isAccessAllowed) {
-      // Identify missing levels
-      const missingLevels = requiredLevels.filter(level =>
-        !completedLevels.some(
-          completed => 
-            completed.levelNumber === level.levelNumber && 
-            completed.levelName === level.levelName
-        )
-      );
+    let assessmentFound = null;
+    for (const topic of learningPath.topics) {
+      for (const subtopic of topic.subtopics) {
+        if (subtopic.assessment?.id === numericAssessmentId) {
+          assessmentFound = subtopic.assessment;
+          break;
+        }
+      }
+      if (assessmentFound) break;
+    }
 
+    if (!assessmentFound) {
+      return res.status(404).json({ message: 'Assessment not found in the learning path' });
+    }
+
+    // Check if the assessment is locked
+    if (assessmentFound.isLocked) {
       return res.status(403).json({
-        message: 'Access denied: Required levels are not completed',
-        missingLevels: missingLevels,
-        completedLevels: completedLevels
+        message: 'Access denied: Assessment is locked',
+        assessment: {
+          id: assessmentFound.id,
+          name: assessmentFound.name,
+        },
       });
     }
 
-    // Step 4: Grant access
+    // Grant access
     return res.status(200).json({
       message: 'Access granted',
-      userId: decodedUserId,
-      assessmentName,
-      completedLevels: completedLevels
     });
 
   } catch (error) {
@@ -167,8 +162,7 @@ const SetShowWelcome = async (req, res) => {
         // Create a new progress record if user exists but no progress found
         const newUserProgress = new UserProgress({
           student: validUserId,
-          levelsCompleted: [],
-          levelsUnlocked: [],
+          learningPath,
           assessments: [],
           showWelcome: false
         });
@@ -274,8 +268,7 @@ const SetShowInitialQuestions = async (req, res) => {
         // Create a new progress record if user exists but no progress found
         const newUserProgress = new UserProgress({
           student: validUserId,
-          levelsCompleted: [],
-          levelsUnlocked: [],
+          learningPath,
           assessments: [],
           showInitialQuestions: false
         });
@@ -297,6 +290,50 @@ const SetShowInitialQuestions = async (req, res) => {
     return res.status(500).json({
       message: 'Server error',
       error: error.message
+    });
+  }
+};
+
+
+const getLearningPath = async (req, res) => {
+  try {
+    
+    const userId = res.locals.userId; // The ID from the decoded token
+
+    // Validate and convert userId to ObjectId
+    let validUserId;
+    try {
+      validUserId = new mongoose.Types.ObjectId(userId);
+    } catch (error) {
+      return res.status(400).json({
+        message: 'Invalid user ID format',
+        error: error.message,
+      });
+    }
+
+    // Step 2: Retrieve the user's learning path
+    const userProgress = await UserProgress.findOne({
+      student: validUserId,
+    });
+
+    if (!userProgress) {
+      return res.status(404).json({ message: 'Progress not found' });
+    }
+
+    const learningPath = userProgress.learningPath;
+    const currentStatus= userProgress.currentStatus
+
+    // Step 3: Respond with the learning path
+    return res.status(200).json({
+      message: 'Learning path retrieved successfully',
+      learningPath,
+      currentStatus
+    });
+  } catch (error) {
+    console.error('Error in getLearningPath:', error);
+    return res.status(500).json({
+      message: 'Server error',
+      error: error.message,
     });
   }
 };
@@ -345,5 +382,6 @@ module.exports = {
   ShowInitialQuestions,
   SetShowInitialQuestions,
   ShowWelcome,
-  SetShowWelcome
+  SetShowWelcome,
+  getLearningPath
 };

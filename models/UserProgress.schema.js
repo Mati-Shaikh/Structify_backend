@@ -15,31 +15,95 @@ const userProgressSchema = mongoose.Schema({
     type: Boolean,
     default: true  
   },
-  levelsCompleted: [{
-    levelNumber: {
-      type: Number,
-      required: true
-    },
-    levelName: {
+  learningPath: {
+    topics: [{
+      topic: {
+        type: String,
+        required: true
+      },
+      subtopics: [{
+        subtopic: {
+          type: String,
+          required: true
+        },
+        levels: [{
+          id: {
+            type: Number,
+            required: true
+          },
+          name: {
+            type: String,
+            required: true
+          },
+          isLocked: {
+            type: Boolean,
+            default: true
+          },
+          isCompleted: {
+            type: Boolean,
+            default: false
+          },
+          danger: {
+            type: Boolean,
+            default: false
+          }
+        }],
+        assessment: {
+          id: {
+            type: Number
+          },
+          name: {
+            type: String
+          },
+          duration: {
+            type: String
+          },
+          isLocked: {
+            type: Boolean,
+            default: true
+          }
+        }
+      }]
+    }]
+  },
+  currentStatus: {
+    topic: {
       type: String,
-      required: true
+      default: "Linked List"
     },
-  }],
-  levelsUnlocked: [{
-    levelNumber: {
-      type: Number,
-      required: true
-    },
-    levelName: {
+    subtopic: {
       type: String,
-      required: true
+      default: "Insertion"
     },
-  }],
+    level: {
+      id: {
+        type: Number,
+        default: 1
+      },
+      name: {
+        type: String,
+        default: "Insertion At Front"
+      }
+    },
+    assessment: {
+      id: {
+        type: Number,
+        default: null 
+      },
+      name: {
+        type: String,
+        default: null 
+      }
+    }
+  },
   assessments: [{
-    assessmentName: {
+    id: {
+      type: Number,
+    },
+    name: {
         type: String,
       },
-    assessmentDate: {
+    date: {
       type: Date,
       default: Date.now
     },
@@ -51,9 +115,9 @@ const userProgressSchema = mongoose.Schema({
       type: Boolean,
       default: false
     },
-    difficultAreas: [{
-      levelNumber: Number,
-      levelName: String
+    dangerLevels: [{
+      id: Number,
+      name: String
     }]
   }],
   
