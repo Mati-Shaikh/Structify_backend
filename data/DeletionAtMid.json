@@ -8,7 +8,7 @@
         "Delete the node at the end of the list"
       ],
       "answer": "Traverse to the index and update the previous node's next pointer",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -20,7 +20,7 @@
         "No changes are needed"
       ],
       "answer": "Update the head pointer",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -32,7 +32,7 @@
         "The last node"
       ],
       "answer": "The node after the deleted node",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -44,7 +44,7 @@
         "Remove the head pointer"
       ],
       "answer": "Return an error",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Medium"
     },
     {
@@ -56,7 +56,7 @@
         "All nodes in the list are affected"
       ],
       "answer": "Only the next pointer of the previous node is updated",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Medium"
     },
     {
@@ -68,7 +68,7 @@
         "Nothing happens"
       ],
       "answer": "The head pointer is updated to the next node",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Medium"
     },
     {
@@ -80,7 +80,7 @@
         "Only the last node is affected"
       ],
       "answer": "The head pointer is updated to the second node",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Medium"
     },
     {
@@ -92,7 +92,7 @@
         "The middle node's pointer"
       ],
       "answer": "The next pointer of the previous node",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Medium"
     },
     {
@@ -104,7 +104,7 @@
         "Insert a new node at that index"
       ],
       "answer": "Navigate to the index",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "High"
     },
     {
@@ -116,7 +116,7 @@
         "Check if the head pointer is updated"
       ],
       "answer": "Check if the index is valid",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "High"
     },
     {
@@ -128,7 +128,7 @@
         "Verify the head pointer is correct"
       ],
       "answer": "Ensure the next pointer of the previous node is correctly set",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "High"
     },
     {
@@ -140,7 +140,7 @@
         "The previous and next pointers of all nodes"
       ],
       "answer": "The node at the previous index",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -152,7 +152,7 @@
         "To point to NULL"
       ],
       "answer": "To skip the node being deleted",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -164,7 +164,7 @@
         "The tail pointer is reset"
       ],
       "answer": "The previous node's next pointer is accessible",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Medium"
     },
     {
@@ -176,7 +176,7 @@
         "It points to the last node"
       ],
       "answer": "It is skipped by the previous node's next pointer",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -188,7 +188,7 @@
         "Remove the last node"
       ],
       "answer": "Traverse to the node at the previous index",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     },
     {
@@ -200,7 +200,7 @@
         "NULL"
       ],
       "answer": "The node after the deleted node",
-      "topic": "DeletionAtMid",
+      "topic": "Deletion In Middle",
       "difficulty": "Easy"
     }
   ]

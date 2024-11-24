@@ -8,7 +8,7 @@
       "None of the above"
     ],
     "answer": "Last node’s next pointer",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -20,7 +20,7 @@
       "All nodes need deletion"
     ],
     "answer": "The list is empty",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "High"
   },
   {
@@ -32,7 +32,7 @@
       "Create a new head pointer"
     ],
     "answer": "Set the new node as the head",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -44,7 +44,7 @@
       "The node with a null value"
     ],
     "answer": "The last node",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -56,7 +56,7 @@
       "All pointers of the nodes"
     ],
     "answer": "The next pointer of the last node",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Medium"
   },
   {
@@ -68,14 +68,14 @@
       "It points to the second-to-last node"
     ],
     "answer": "It points to the new node",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Medium"
   },
   {
     "question": "What is the next pointer of the new node set to when inserting at the end of a singly linked list?",
     "options": ["Null", "Head", "The previous node", "Itself"],
     "answer": "Null",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -87,7 +87,7 @@
       "If the new node has a null pointer"
     ],
     "answer": "If the list is empty",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -99,7 +99,7 @@
       "Update the last node’s pointer"
     ],
     "answer": "Set the head to the new node",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Medium"
   },
   {
@@ -111,7 +111,7 @@
       "Initialize the new node’s pointer to null"
     ],
     "answer": "Traverse to the last node",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -123,7 +123,7 @@
       "The middle node"
     ],
     "answer": "The last node in the list",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Medium"
   },
   {
@@ -135,7 +135,7 @@
       "The new node’s next pointer"
     ],
     "answer": "The last node’s pointer",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Medium"
   },
   {
@@ -147,7 +147,7 @@
       "The tail pointer"
     ],
     "answer": "The new node’s next pointer",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   },
   {
@@ -159,7 +159,7 @@
       "Delete the tail pointer"
     ],
     "answer": "Set the last node's next pointer to the new node",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Medium"
   },
   {
@@ -171,7 +171,7 @@
       "The tail pointer"
     ],
     "answer": "Null",
-    "topic": "InsertionAtEnd",
+    "topic": "Insertion At End",
     "difficulty": "Easy"
   }
 ]

@@ -8,7 +8,7 @@
         "Update the head pointer to the next node"
       ],
       "answer": "Traverse to the second-to-last node and update its next pointer to NULL",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -20,7 +20,7 @@
         "All pointers"
       ],
       "answer": "The next pointer of the second-to-last node",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -32,21 +32,21 @@
         "The head node"
       ],
       "answer": "NULL",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
       "question": "How many pointers need updating in a linked list when deleting at the end?",
       "options": ["One", "Two", "Three", "None"],
       "answer": "One",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
       "question": "If the linked list has only one node, where will the head point after deleting the last node?",
       "options": ["NULL", "The second node", "The deleted node", "The new node"],
       "answer": "NULL",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -58,7 +58,7 @@
         "It depends on the list size"
       ],
       "answer": "The last node",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -70,7 +70,7 @@
         "It depends on the list size"
       ],
       "answer": "NULL",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -82,7 +82,7 @@
         "It points to itself"
       ],
       "answer": "It is set to NULL",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Medium"
     },
     {
@@ -94,7 +94,7 @@
         "It is merged with the previous node"
       ],
       "answer": "It is removed and its memory is freed",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -106,7 +106,7 @@
         "Update all pointers, then remove the node"
       ],
       "answer": "Traverse to the second-to-last node, update its next pointer, remove the last node",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Medium"
     },
     {
@@ -118,7 +118,7 @@
         "Set the new tail's next to NULL"
       ],
       "answer": "Traverse to the second-to-last node",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Medium"
     },
     {
@@ -130,7 +130,7 @@
         "The head and tail are swapped"
       ],
       "answer": "The second-to-last node becomes the last node",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     },
     {
@@ -142,7 +142,7 @@
         "Remove all nodes"
       ],
       "answer": "Set the head pointer to NULL",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Medium"
     },
     {
@@ -154,7 +154,7 @@
         "It is undefined"
       ],
       "answer": "It points to the last node",
-      "topic": "DeletionAtEnd",
+      "topic": "Deletion At End",
       "difficulty": "Easy"
     }
   ]

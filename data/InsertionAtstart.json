@@ -8,7 +8,7 @@
       "Swap head with the new node"
     ],
     "answer": "Set the new node's next to head",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -20,7 +20,7 @@
       "All pointers"
     ],
     "answer": "The head pointer",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -32,21 +32,21 @@
       "The last node in the list"
     ],
     "answer": "The previous head node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
     "question": "How many pointers need updating in a linked list when inserting at the start?",
     "options": ["One", "Two", "Three", "None"],
     "answer": "One",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
     "question": "If the linked list is empty, where will the head point after inserting at the start?",
     "options": ["The new node", "NULL", "The old head", "The second node"],
     "answer": "The new node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -58,7 +58,7 @@
       "It depends on the list size"
     ],
     "answer": "At the first position",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -70,7 +70,7 @@
       "None of the above"
     ],
     "answer": "The new node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -82,7 +82,7 @@
       "It depends on the list size"
     ],
     "answer": "Before the first node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -94,7 +94,7 @@
       "It points to NULL"
     ],
     "answer": "It shifts one position down",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Medium"
   },
   {
@@ -106,7 +106,7 @@
       "It points to itself"
     ],
     "answer": "It becomes the new head",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -118,7 +118,7 @@
       "It points to NULL"
     ],
     "answer": "It becomes the second node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -130,7 +130,7 @@
       "Update all pointers, then set head"
     ],
     "answer": "Set new node's next, update head",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Medium"
   },
   {
@@ -142,7 +142,7 @@
       "Set the new node's next to NULL"
     ],
     "answer": "Set the new node's next to the current head",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Medium"
   },
   {
@@ -154,7 +154,7 @@
       "The last node's next pointer"
     ],
     "answer": "The new node's next pointer",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -166,7 +166,7 @@
       "The head and tail are swapped"
     ],
     "answer": "The head points to the new node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -178,7 +178,7 @@
       "Update the tail pointer"
     ],
     "answer": "Update head to point to the new node",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Medium"
   },
   {
@@ -190,7 +190,7 @@
       "It is undefined"
     ],
     "answer": "It is NULL",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Easy"
   },
   {
@@ -202,7 +202,7 @@
       "To ensure circular linkage"
     ],
     "answer": "To avoid losing access to the rest of the list",
-    "topic": "InsertionAtStart",
+    "topic": "Insertion At Front",
     "difficulty": "Medium"
   }
 ]

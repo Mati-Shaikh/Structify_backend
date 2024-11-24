@@ -8,7 +8,7 @@
       "Insert the node at the end of the list"
     ],
     "answer": "Traverse to the index and update the next pointer",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -20,14 +20,14 @@
       "No changes are needed"
     ],
     "answer": "Update the head pointer",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
     "question": "When inserting a node at a given index, what should the previous node's next pointer be updated to?",
     "options": ["The new node", "The head pointer", "Null", "The last node"],
     "answer": "The new node",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -39,7 +39,7 @@
       "Create a new head"
     ],
     "answer": "Return an error",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -51,7 +51,7 @@
       "All nodes in the list are affected"
     ],
     "answer": "Only the next pointer of the previous node is updated",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -63,7 +63,7 @@
       "Nothing happens"
     ],
     "answer": "The new node becomes the head of the list",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -75,7 +75,7 @@
       "Only the last node is affected"
     ],
     "answer": "The new node’s next pointer points to the head",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -87,7 +87,7 @@
       "The middle node's next pointer"
     ],
     "answer": "The next pointer of the previous node",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -99,7 +99,7 @@
       "Delete the node at that index"
     ],
     "answer": "Navigate to the index",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "High"
   },
   {
@@ -111,7 +111,7 @@
       "Check if the head pointer is updated"
     ],
     "answer": "Check if the index is valid",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "High"
   },
   {
@@ -123,7 +123,7 @@
       "Verify the head pointer is correct"
     ],
     "answer": "Ensure the next pointer of the inserted node is correctly set",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "High"
   },
   {
@@ -135,7 +135,7 @@
       "Only the second node’s pointer is changed"
     ],
     "answer": "The new node’s next pointer points to the second node",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "High"
   },
   {
@@ -147,7 +147,7 @@
       "The previous and next pointers of all nodes"
     ],
     "answer": "The node at the previous index",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -159,7 +159,7 @@
       "To point to NULL"
     ],
     "answer": "To point to the node currently at that index",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -171,7 +171,7 @@
       "The tail pointer is reset"
     ],
     "answer": "The previous node's next pointer is accessible",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -183,7 +183,7 @@
       "It becomes the head"
     ],
     "answer": "It becomes the next node of the new node",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -195,7 +195,7 @@
       "The previous last node is replaced"
     ],
     "answer": "The new node is appended at the end",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   },
   {
@@ -207,7 +207,7 @@
       "Remove the last node"
     ],
     "answer": "Traverse to the node at the previous index",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -219,7 +219,7 @@
       "The tail pointer"
     ],
     "answer": "The node currently at the specified index",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Easy"
   },
   {
@@ -231,7 +231,7 @@
       "By removing the tail pointer"
     ],
     "answer": "By updating the next pointer of the previous node and the new node",
-    "topic": "InsertionAtMid",
+    "topic": "Insertion In Middle",
     "difficulty": "Medium"
   }
 ]

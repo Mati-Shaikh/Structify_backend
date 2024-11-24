@@ -8,7 +8,7 @@
       "None of the above"
     ],
     "answer": "Head pointer",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   },
   {
@@ -20,7 +20,7 @@
       "All nodes need deletion"
     ],
     "answer": "The list is empty",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "High"
   },
   {
@@ -32,7 +32,7 @@
       "Create a new head pointer"
     ],
     "answer": "Return an error or do nothing",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   },
   {
@@ -44,7 +44,7 @@
       "The node with a null value"
     ],
     "answer": "The head pointer",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   },
   {
@@ -56,7 +56,7 @@
       "All pointers of the nodes"
     ],
     "answer": "The head pointer to the next node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Medium"
   },
   {
@@ -68,7 +68,7 @@
       "It remains unchanged"
     ],
     "answer": "It points to the second node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Medium"
   },
   {
@@ -80,7 +80,7 @@
       "If the first node has a null pointer"
     ],
     "answer": "If the list is empty",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   },
   {
@@ -92,7 +92,7 @@
       "Initialize the list to null"
     ],
     "answer": "Update the head pointer to the next node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   },
   {
@@ -104,7 +104,7 @@
       "It points to the middle node"
     ],
     "answer": "It points to the second node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Medium"
   },
   {
@@ -116,7 +116,7 @@
       "The deleted node’s pointer"
     ],
     "answer": "The head pointer",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Medium"
   },
   {
@@ -128,7 +128,7 @@
       "The tail pointer"
     ],
     "answer": "The pointer of the deleted node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   },
   {
@@ -140,14 +140,14 @@
       "Delete the tail pointer"
     ],
     "answer": "Update the head pointer to the next node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Medium"
   },
   {
     "question": "What should the head pointer point to after the first node is deleted in a singly linked list?",
     "options": ["The second node", "Null", "The last node", "The tail pointer"],
     "answer": "The second node",
-    "topic": "DeletionAtStart",
+    "topic": "Deletion At Front",
     "difficulty": "Easy"
   }
 ]

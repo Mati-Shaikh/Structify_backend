@@ -14,7 +14,7 @@ const getRandomQuestionsByTopic = async (req, res) => {
   try {
     // Fetch 4 questions for "InsertionAtStart"
     const insertionAtStartQuestions = await Question.aggregate([
-      { $match: { topic: "InsertionAtStart" } }, // Filter by topic
+      { $match: { topic: "Insertion At Front" } }, // Filter by topic
       { $sample: { size: 4 } }, // Sample 4 random questions
       {
         $project: {
@@ -28,7 +28,7 @@ const getRandomQuestionsByTopic = async (req, res) => {
 
     // Fetch 3 questions for "InsertionAtMid"
     const insertionAtMidQuestions = await Question.aggregate([
-      { $match: { topic: "InsertionAtMid" } }, // Filter by topic
+      { $match: { topic: "Insertion In Middle" } }, // Filter by topic
       { $sample: { size: 3 } }, // Sample 3 random questions
       {
         $project: {
@@ -42,7 +42,7 @@ const getRandomQuestionsByTopic = async (req, res) => {
 
     // Fetch 3 questions for "InsertionAtEnd"
     const insertionAtEndQuestions = await Question.aggregate([
-      { $match: { topic: "InsertionAtEnd" } }, // Filter by topic
+      { $match: { topic: "Insertion At End" } }, // Filter by topic
       { $sample: { size: 3 } }, // Sample 3 random questions
       {
         $project: {

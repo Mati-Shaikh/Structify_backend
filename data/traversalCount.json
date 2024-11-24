@@ -8,7 +8,7 @@
       "By summing the indices of the nodes"
     ],
     "answer": "By incrementing a counter for each node during traversal",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
@@ -20,21 +20,21 @@
       "The length of the list"
     ],
     "answer": "0",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "What is the node count of a linked list if it contains nodes 1->2->3->4->5?",
     "options": ["5", "4", "6", "1"],
     "answer": "5",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Medium"
   },
   {
     "question": "What is the node count of a linked list with no nodes?",
     "options": ["0", "Undefined", "1", "Negative"],
     "answer": "0",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
@@ -46,14 +46,14 @@
       "It becomes equal to the total node count"
     ],
     "answer": "It stops at the number of visited nodes",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Medium"
   },
   {
     "question": "What is the starting node of a linked list called?",
     "options": ["Root", "Head", "Tail", "Node"],
     "answer": "Head",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
@@ -65,28 +65,28 @@
       "To delete nodes"
     ],
     "answer": "To access all nodes",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "Which of the following is required to traverse a linked list?",
     "options": ["A counter", "A pointer", "An array", "A stack"],
     "answer": "A pointer",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "What should the pointer point to for traversal to stop?",
     "options": ["Head", "Tail", "Next node", "Null"],
     "answer": "Null",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "In a linked list, how is the next node accessed?",
     "options": ["node.prev", "node.next", "node.child", "node.link"],
     "answer": "node.next",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
@@ -98,14 +98,14 @@
       "It creates a new node"
     ],
     "answer": "The traversal does nothing",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "What does the last node in a linked list point to?",
     "options": ["Head", "Itself", "Null", "Next node"],
     "answer": "Null",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
@@ -117,7 +117,7 @@
       "Pointer loops back"
     ],
     "answer": "Pointer is null",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Medium"
   },
   {
@@ -129,7 +129,7 @@
       "Using recursion"
     ],
     "answer": "Using a counter variable",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Medium"
   },
   {
@@ -141,56 +141,56 @@
       "Point to tail"
     ],
     "answer": "Move pointer to node.next.next",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Medium"
   },
   {
     "question": "What is the output of traversal for a linked list with nodes {1, 2, 3}?",
     "options": ["3 -> 2 -> 1", "1 -> 2 -> 3", "Null", "Error"],
     "answer": "1 -> 2 -> 3",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Medium"
   },
   {
     "question": "The linked list contains the nodes: 1 -> 2 -> 3. How many nodes are present in the list?",
     "options": ["1", "2", "3", "4"],
     "answer": "3",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "The linked list contains the nodes: 5 -> 10. How many nodes are present in the list?",
     "options": ["1", "2", "3", "5"],
     "answer": "2",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "The linked list contains the nodes: 7. How many nodes are present in the list?",
     "options": ["0", "1", "2", "7"],
     "answer": "1",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "The linked list contains the nodes: 9 -> 8 -> 7 -> 6. How many nodes are present in the list?",
     "options": ["2", "3", "4", "5"],
     "answer": "4",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "The linked list contains the nodes: 1 -> 2 -> 3 -> 4 -> 5. How many nodes are present in the list?",
     "options": ["3", "4", "5", "6"],
     "answer": "5",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   },
   {
     "question": "The linked list contains the nodes: 10 -> 20 -> 30 -> 40 -> 50 -> 60. How many nodes are present in the list?",
     "options": ["5", "6", "7", "8"],
     "answer": "6",
-    "topic": "TraversalCount",
+    "topic": "Traversal Count Nodes",
     "difficulty": "Easy"
   }
 ]
