@@ -14,7 +14,9 @@ const learningPath = {
               id: 1,
               name: "Insertion Assessment",
               duration: "15 minutes",
-              isLocked: true
+              isLocked: true,
+              isCompleted: false,
+              danger: false
             }
           },
           {
@@ -28,7 +30,9 @@ const learningPath = {
               id: 2,
               name: "Traversal Assessment",
               duration: "15 minutes",
-              isLocked: true
+              isLocked: true,
+              isCompleted: false,
+              danger: false
             }
           },
           {
@@ -42,7 +46,9 @@ const learningPath = {
               id: 3,
               name: "Deletion Assessment",
               duration: "15 minutes",
-              isLocked: true
+              isLocked: true,
+              isCompleted: false,
+              danger: false
             }
           }
         ]

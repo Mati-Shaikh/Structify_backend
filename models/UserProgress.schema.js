@@ -61,6 +61,14 @@ const userProgressSchema = mongoose.Schema({
           isLocked: {
             type: Boolean,
             default: true
+          },
+          isCompleted: {
+            type: Boolean,
+            default: false
+          },
+          danger: {
+            type: Boolean,
+            default: false
           }
         }
       }]
