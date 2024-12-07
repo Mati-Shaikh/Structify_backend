@@ -93,16 +93,7 @@ const userProgressSchema = mongoose.Schema({
         default: "Insertion At Front"
       }
     },
-    assessment: {
-      id: {
-        type: Number,
-        default: null 
-      },
-      name: {
-        type: String,
-        default: null 
-      }
-    }
+    
   },
   assessments: [{
     id: {

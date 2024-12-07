@@ -431,8 +431,6 @@ const submitAnswers = async (req, res) => {
         }
       }
 
-      console.log(dangerLevels)
-
       // Update UserProgress for the student
       if (userProgress) {
         // Mark levels as danger in the user's learning path
@@ -464,28 +462,36 @@ const submitAnswers = async (req, res) => {
 
       for (let i = 0; i < userProgress.learningPath.topics.length; i++) {
         const topic = userProgress.learningPath.topics[i];
-    
+
         for (let j = 0; j < topic.subtopics.length; j++) {
           const subtopic = topic.subtopics[j];
-    
+
           if (subtopic.assessment && subtopic.assessment.id === assessmentId) {
             // Mark current assessment as completed and update its levels
             subtopic.assessment.isCompleted = true;
             subtopic.assessment.danger = false;
-    
+
             subtopic.levels.forEach((level) => {
               if (!level.isLocked) {
                 level.danger = false;
                 level.isCompleted = true;
               }
             });
-    
+
             // Unlock the first level of the next subtopic
             if (j + 1 < topic.subtopics.length) {
               const nextSubtopic = topic.subtopics[j + 1];
               if (nextSubtopic.levels.length > 0) {
                 const firstLevel = nextSubtopic.levels[0];
                 firstLevel.isLocked = false;
+                userProgress.currentStatus = {
+                  level: {
+                    id: firstLevel.id,
+                    name: firstLevel.name
+                  },
+                  topic: topic.topic,
+                  subtopic: nextSubtopic.subtopic
+                };
               }
             }
           }
@@ -527,6 +533,158 @@ const submitAnswers = async (req, res) => {
 };
 
 
+const levelCompleted = async (req, res) => {
+  try {
+    const userId = res.locals.userId; // The ID from the decoded token
+    const { nextLevel, currentLevel } = req.body;
+
+    // Extract level IDs from the provided names (assuming level names follow the "level1", "level2" pattern)
+    const currentLevelId = parseInt(currentLevel.replace('level', ''), 10);
+    const nextLevelId = parseInt(nextLevel.replace('level', ''), 10);
+
+    // Fetch user's learning progress
+    const userProgress = await UserProgress.findOne({ student: userId });
+    if (!userProgress) {
+      return res.status(404).json({ message: "User progress not found" });
+    }
+
+    let levelUpdated = false;
+    let assessmentUpdated = false;
+    let flag = true
+
+    // Process the levels and assessments based on divisibility by 3
+    userProgress.learningPath.topics.forEach((topic) => {
+      topic.subtopics.forEach((subtopic) => {
+        subtopic.levels.forEach((level) => {
+          if (level.id === currentLevelId) {
+
+            if(level.isCompleted){ //If already completed level then a flag for not changing cuurentStatus
+              flag = false
+            }
+            // 1. Mark the current level as completed
+            level.isCompleted = true;
+            level.danger= false
+            levelUpdated = true;
+
+            // If the current level is not divisible by 3, unlock the next level
+            const nextLevelInSubtopic = subtopic.levels.find(l => l.id === nextLevelId);
+            if (currentLevelId % 3 !== 0) {
+              if (nextLevelInSubtopic) {
+                nextLevelInSubtopic.isLocked = false;
+              }
+            }
+
+            if (nextLevelInSubtopic && flag) {
+              userProgress.currentStatus = {
+                level: {
+                  id: nextLevelId,
+                  name: nextLevelInSubtopic.name
+                },
+                topic: topic.topic,
+                subtopic: subtopic.subtopic
+              };
+            }
+          }
+
+          if (currentLevelId % 3 === 0 && level.id === currentLevelId) {
+            // If the level is not divisible by 3, find the assessment after the current level
+            if (subtopic.assessment && subtopic.assessment.id) {
+              subtopic.assessment.isLocked = false;
+              assessmentUpdated = true;
+            }
+          }
+        });
+      });
+    });
+
+    // Save the changes to user progress
+    if (levelUpdated || assessmentUpdated) {
+      await userProgress.save();
+      res.status(200).json({ message: "Level completed and progress updated successfully." });
+    } else {
+      res.status(400).json({ message: "Unable to update level or assessment." });
+    }
+  } catch (error) {
+    console.error('Error completing level:', error);
+    res.status(500).json({ message: 'Failed to complete level', error: error.message });
+  }
+};
+
+const ProtectedRouteForLevel = async (req, res) => {
+  try {
+    const { userId, level } = req.body;
+
+    const decodedUserId = res.locals.userId; // The ID from the decoded token
+
+    // Validate that the userId in the request body matches the decoded userId
+    if (decodedUserId !== userId) {
+      return res.status(401).json({ message: 'Access denied: Invalid user ID' });
+    }
+
+    // Validate and convert userId to ObjectId
+    let validUserId;
+    try {
+      validUserId = new mongoose.Types.ObjectId(userId);
+    } catch (error) {
+      return res.status(400).json({
+        message: 'Invalid user ID format',
+        error: error.message
+      });
+    }
+
+    // Retrieve user progress
+    const userProgress = await UserProgress.findOne({
+      student: validUserId
+    });
+
+    if (!userProgress) {
+      return res.status(404).json({ message: 'Progress not found' });
+    }
+
+    // Convert levelId (string) to a number
+    const numericLevelId = parseInt(level.replace('level', ''), 10);
+    if (isNaN(numericLevelId)) {
+      return res.status(400).json({ message: 'Invalid level ID format' });
+    }
+
+    // Find the level in the learning path
+    const learningPath = userProgress.learningPath || { topics: [] };
+
+    let levelFound = false;
+    let levelUnlocked = false;
+
+    // Loop through topics, subtopics, and levels to find the requested level
+    for (const topic of learningPath.topics) {
+      for (const subtopic of topic.subtopics) {
+        const level = subtopic.levels.find(l => l.id === numericLevelId);
+        if (level) {
+          levelFound = true;
+          levelUnlocked = !level.isLocked; // Check if the level is unlocked
+          break;
+        }
+      }
+      if (levelFound) break;
+    }
+
+    if (!levelFound || !levelUnlocked) {
+      return res.status(404).json({ message: 'Level not found in the learning path' });
+    }
+
+    // Return the status of the level (unlocked or locked)
+    return res.status(200).json({
+      message: 'Level is unlocked',
+    });
+
+  } catch (error) {
+    console.error('Error in ProtectedRouteForLevel:', error);
+    return res.status(500).json({
+      message: 'Server error',
+      error: error.message
+    });
+  }
+};
+
+
 
 
 module.exports = {
@@ -536,5 +694,7 @@ module.exports = {
   SetShowInitialQuestions,
   ShowWelcome,
   SetShowWelcome,
-  getLearningPath
+  getLearningPath,
+  levelCompleted, 
+  ProtectedRouteForLevel
 };
