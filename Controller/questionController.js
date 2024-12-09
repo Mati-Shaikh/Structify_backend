@@ -9,57 +9,57 @@ const shuffleArray = (array) => {
   return array;
 };
 
-// Controller function to get specific random questions by topic
+
 const getRandomQuestionsByTopic = async (req, res) => {
   try {
-    // Fetch 4 questions for "InsertionAtStart"
-    const insertionAtStartQuestions = await Question.aggregate([
-      { $match: { topic: "Insertion At Front" } }, // Filter by topic
-      { $sample: { size: 4 } }, // Sample 4 random questions
-      {
-        $project: {
-          question: 1,
-          answer: 1,
-          options: 1,
-          _id: 1, // Include _id field
-        },
-      },
-    ]);
+    const { assessmentId } = req.body;
+    const assessmentIdNum = parseInt(assessmentId);
 
-    // Fetch 3 questions for "InsertionAtMid"
-    const insertionAtMidQuestions = await Question.aggregate([
-      { $match: { topic: "Insertion In Middle" } }, // Filter by topic
-      { $sample: { size: 3 } }, // Sample 3 random questions
-      {
-        $project: {
-          question: 1,
-          answer: 1,
-          options: 1,
-          _id: 1, // Include _id field
-        },
-      },
-    ]);
+    // Define topics and sampling logic based on assessmentId
+    let topics;
+    if (assessmentIdNum === 1) {
+      topics = [
+        { topic: "Insertion At Front", size: 4 },
+        { topic: "Insertion In Middle", size: 3 },
+        { topic: "Insertion At End", size: 3 },
+      ];
+    } else if (assessmentIdNum === 2) {
+      topics = [
+        { topic: "Traversal Sum", size: 4 },
+        { topic: "Traversal Count Nodes", size: 3 },
+        { topic: "Traversal Maximum", size: 3 },
+      ];
+    } else if (assessmentIdNum === 3) {
+      topics = [
+        { topic: "Deletion At Front", size: 4 },
+        { topic: "Deletion At End", size: 3 },
+        { topic: "Deletion In Middle", size: 3 },
+      ];
+    } else {
+      return res.status(400).json({ message: "Invalid assessmentId" });
+    }
 
-    // Fetch 3 questions for "InsertionAtEnd"
-    const insertionAtEndQuestions = await Question.aggregate([
-      { $match: { topic: "Insertion At End" } }, // Filter by topic
-      { $sample: { size: 3 } }, // Sample 3 random questions
-      {
-        $project: {
-          question: 1,
-          options: 1,
-          answer: 1,
-          _id: 1, // Include _id field
+    // Fetch questions dynamically based on topics
+    const fetchQuestions = async ({ topic, size }) => {
+      return await Question.aggregate([
+        { $match: { topic } },
+        { $sample: { size } },
+        {
+          $project: {
+            question: 1,
+            answer: 1,
+            options: 1,
+            _id: 1, // Include _id field
+          },
         },
-      },
-    ]);
+      ]);
+    };
+
+    const questionsPromises = topics.map(fetchQuestions);
+    const questionsByTopic = await Promise.all(questionsPromises);
 
     // Combine all questions into a single array
-    let questions = [
-      ...insertionAtStartQuestions,
-      ...insertionAtMidQuestions,
-      ...insertionAtEndQuestions,
-    ];
+    let questions = questionsByTopic.flat();
 
     // Shuffle options for each question
     questions = questions.map((question) => {
@@ -69,6 +69,7 @@ const getRandomQuestionsByTopic = async (req, res) => {
       return question;
     });
 
+
     // Check if any questions were found
     if (questions.length === 0) {
       return res.status(404).json({ message: "No questions found" });
@@ -77,11 +78,13 @@ const getRandomQuestionsByTopic = async (req, res) => {
     // Send the response with the combined questions
     res.status(200).json(questions);
   } catch (error) {
-    console.error("Error fetching random questions by topic:", error);
+    console.error("Error fetching random questions by assessmentId:", error);
     res.status(500).json({ message: "Failed to retrieve questions" });
   }
 };
 
+
+
 module.exports = {
-  getRandomQuestionsByTopic,
+  getRandomQuestionsByTopic
 };
