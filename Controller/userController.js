@@ -411,7 +411,7 @@ const submitAnswers = async (req, res) => {
       return null;
     };
 
-    if (score < 8) {
+    if (score < 9) {
 
       //Declare the Assessment in danger
       for (const topic of userProgress.learningPath.topics) {
@@ -426,7 +426,7 @@ const submitAnswers = async (req, res) => {
       // Identify danger levels (topics/levels with < 80% performance)
       for (const level in topicStats) {
         const { correct, total, name } = topicStats[level];
-        if ((correct / total) * 100 < 60) {
+        if ((correct / total) * 100 < 100) {
           dangerLevels.push({ id: parseInt(level), name: name }); // Include level ID and name
         }
       }
@@ -440,6 +440,9 @@ const submitAnswers = async (req, res) => {
               if (dangerLevels.some((danger) => danger.id === level.id)) {
                 level.danger = true;
                 level.isCompleted = false
+              } else if (subtopic.assessment && subtopic.assessment.id === assessmentId){
+                level.danger = false;
+                level.isCompleted=true
               }
             });
           });
