@@ -21,7 +21,7 @@ mongoose
   })
   .catch((err) => console.error(err)); 
 
-// Routes
+
 app.use("/api/auth", authRoute);
 app.use("/api/questions", questionRoutes); // Register the question routes
 app.use('/api/users', userRoutes); // User routes for submitting answers
