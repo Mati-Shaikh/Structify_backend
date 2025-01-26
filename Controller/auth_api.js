@@ -3,7 +3,37 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const Student = require('../models/Student.schema')
-//hello
+const UserProgress = require('../models/UserProgress.schema')
+
+const updateStreak = async (userId) => {
+  const userProgress = await UserProgress.findOne({ student: userId });
+
+  const currentDate = new Date().toISOString().split("T")[0]; // Current date in YYYY-MM-DD
+  if (!userProgress.streak.lastLoginDate) {
+    // First login, initialize streak
+    userProgress.streak.lastLoginDate = currentDate;
+    userProgress.streak.currentStreak = 1;
+    userProgress.streak.loginDates.push(new Date());
+  } else {
+    const lastLoginDate = new Date(userProgress.streak.lastLoginDate).toISOString().split("T")[0];
+
+    if (new Date(lastLoginDate).getTime() + 86400000 === new Date(currentDate).getTime()) {
+      // Consecutive login, increment streak
+      userProgress.streak.currentStreak += 1;
+    } else if (lastLoginDate !== currentDate) {
+      // Non-consecutive login, reset streak
+      userProgress.streak.currentStreak = 1;
+    }
+
+    if (!userProgress.streak.loginDates.some(date => date.toISOString().split("T")[0] === currentDate)) {
+      userProgress.streak.loginDates.push(new Date()); // Avoid duplicate entries
+    }
+  }
+
+  userProgress.streak.lastLoginDate = new Date();
+  await userProgress.save();
+};
+
 const generateToken = (user) => {
   const payload = {
     _id: user._id,
@@ -37,6 +67,8 @@ let RegisterUser = async (req, res) => {
     const user = await Student.create(newUser);
 
     const token = generateToken(user);
+
+    await updateStreak(user._id);
     
     res.status(200).json({
       token,  // JWT token
@@ -50,8 +82,6 @@ let RegisterUser = async (req, res) => {
     res.status(500).json(err);
   }
 };
-
-
 
 let DuplicateUser = async (req, res) => {
   try {
@@ -103,6 +133,8 @@ let GoogleAuth = async (req, res) => {
     }
 
     const token = generateToken(user);
+
+    await updateStreak(user._id);
     
     res.status(200).json({
       token,  // JWT token
@@ -137,7 +169,8 @@ let LoginUser = async (req, res) => {
 
     const token = generateToken(user);
 
-    
+    // Update streak
+    await updateStreak(user._id);
 
     res.status(200).json({
       token,  // JWT token

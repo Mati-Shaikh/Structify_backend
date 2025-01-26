@@ -411,7 +411,7 @@ const submitAnswers = async (req, res) => {
       return null;
     };
 
-    if (score < 9) {
+    if (score < 8) {
 
       //Declare the Assessment in danger
       for (const topic of userProgress.learningPath.topics) {
@@ -426,7 +426,7 @@ const submitAnswers = async (req, res) => {
       // Identify danger levels (topics/levels with < 80% performance)
       for (const level in topicStats) {
         const { correct, total, name } = topicStats[level];
-        if ((correct / total) * 100 < 100) {
+        if ((correct / total) * 100 < 60) {
           dangerLevels.push({ id: parseInt(level), name: name }); // Include level ID and name
         }
       }
@@ -440,9 +440,6 @@ const submitAnswers = async (req, res) => {
               if (dangerLevels.some((danger) => danger.id === level.id)) {
                 level.danger = true;
                 level.isCompleted = false
-              } else if (subtopic.assessment && subtopic.assessment.id === assessmentId){
-                level.danger = false;
-                level.isCompleted=true
               }
             });
           });
@@ -687,8 +684,23 @@ const ProtectedRouteForLevel = async (req, res) => {
   }
 };
 
+const weekStreak = async (req, res) => {
+  try {
+    const userId = res.locals.userId;
+    const userProgress = await UserProgress.findOne({ student: userId });
+    if (!userProgress) return res.status(404).json({ message: "Progress not found" });
 
+    // Convert loginDates to YYYY-MM-DD format for the calendar
+    const loginDates = userProgress.streak.loginDates.map(date =>
+      new Date(date).toISOString().split("T")[0]
+    );
 
+    res.status(200).json({ loginDates });
+  } catch (error) {
+    console.error('Error fetching calendar streak:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
 
 module.exports = {
   submitAnswers,
@@ -699,5 +711,6 @@ module.exports = {
   SetShowWelcome,
   getLearningPath,
   levelCompleted, 
-  ProtectedRouteForLevel
+  ProtectedRouteForLevel,
+  weekStreak,
 };

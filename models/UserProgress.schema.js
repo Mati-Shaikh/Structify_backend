@@ -95,6 +95,11 @@ const userProgressSchema = mongoose.Schema({
     },
     
   },
+  streak: {
+    currentStreak: { type: Number, default: 0 },
+    lastLoginDate: { type: Date },
+    loginDates: [{ type: Date }] // Store all login dates
+  },  
   assessments: [{
     id: {
       type: Number,
