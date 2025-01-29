@@ -10,14 +10,27 @@ const updateStreak = async (userId) => {
 
   const currentDate = new Date().toISOString().split("T")[0]; // Current date in YYYY-MM-DD
   if (!userProgress.streak.lastLoginDate) {
+    // First login, initialize streak
+    userProgress.streak.lastLoginDate = currentDate;
+    userProgress.streak.currentStreak = 1;
     userProgress.streak.loginDates.push(new Date());
   } else {
+    const lastLoginDate = new Date(userProgress.streak.lastLoginDate).toISOString().split("T")[0];
+
+    if (new Date(lastLoginDate).getTime() + 86400000 === new Date(currentDate).getTime()) {
+      // Consecutive login, increment streak
+      userProgress.streak.currentStreak += 1;
+    } else if (lastLoginDate !== currentDate) {
+      // Non-consecutive login, reset streak
+      userProgress.streak.currentStreak = 1;
+    }
+
     if (!userProgress.streak.loginDates.some(date => date.toISOString().split("T")[0] === currentDate)) {
       userProgress.streak.loginDates.push(new Date()); // Avoid duplicate entries
     }
   }
 
-  //userProgress.streak.lastLoginDate = new Date();
+  userProgress.streak.lastLoginDate = new Date();
   await userProgress.save();
 };
 
