@@ -5,10 +5,44 @@ const crypto = require("crypto");
 const Student = require('../models/Student.schema')
 const UserProgress = require('../models/UserProgress.schema')
 
+const sendStreakBreakEmail = async (userId) => {
+  // Fetch user details from the database
+  const user = await Student.findById(userId);
+
+  if (!user) {
+    return;
+  }
+
+  // Set up Nodemailer to send the email
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.EMAIL,  // Your email address
+      pass: process.env.EMAIL_PASSWORD,  // Your email password or app-specific password
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL,  // Sender address
+    to: user.Email,  // Receiver's email address
+    subject: "Your Learning Streak is Broken!",
+    text: `Hello ${user.FirstName},\n\nIt seems like you've missed your learning streak! Don't worry, it's never too late to get back on track. Log in now and keep up the momentum to maintain your streak!\n\nKeep up the great work!\n- Structify Team`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("Streak break email sent successfully!");
+  } catch (error) {
+    console.error("Error sending streak break email:", error);
+  }
+};
+
 const updateStreak = async (userId) => {
   const userProgress = await UserProgress.findOne({ student: userId });
-
   const currentDate = new Date().toISOString().split("T")[0]; // Current date in YYYY-MM-DD
+
+  let streakBroken = false; // New flag to track streak break
+
   if (!userProgress.streak.lastLoginDate) {
     // First login, initialize streak
     userProgress.streak.lastLoginDate = currentDate;
@@ -23,6 +57,7 @@ const updateStreak = async (userId) => {
     } else if (lastLoginDate !== currentDate) {
       // Non-consecutive login, reset streak
       userProgress.streak.currentStreak = 1;
+      streakBroken = true; // Set streakBroken flag
     }
 
     if (!userProgress.streak.loginDates.some(date => date.toISOString().split("T")[0] === currentDate)) {
@@ -32,7 +67,13 @@ const updateStreak = async (userId) => {
 
   userProgress.streak.lastLoginDate = new Date();
   await userProgress.save();
+
+  if (streakBroken) {
+    // Send email to the user if streak is broken
+    await sendStreakBreakEmail(userId);
+  }
 };
+
 
 const generateToken = (user) => {
   const payload = {

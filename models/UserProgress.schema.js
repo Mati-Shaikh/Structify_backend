@@ -124,7 +124,10 @@ const userProgressSchema = mongoose.Schema({
       name: String
     }]
   }],
-  
+  coins: {
+    type: Number,
+    default: 0 // Set default value for coins
+  }
 }, { timestamps: true });
 
 const UserProgress = mongoose.model("UserProgress", userProgressSchema);

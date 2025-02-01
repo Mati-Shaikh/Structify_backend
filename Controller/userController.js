@@ -4,6 +4,29 @@ const Student = require('../models/Student.schema');
 const mongoose = require('mongoose');
 const learningPath = require('./learningPath');
 
+const getUserCoins = async (req, res) => {
+  try {
+    const userId = res.locals.userId; // The ID from the decoded token
+
+    // Fetch user's progress to retrieve the coins balance
+    const userProgress = await UserProgress.findOne({ student: userId });
+
+    if (!userProgress) {
+      return res.status(404).json({ message: 'User progress not found' });
+    }
+
+    // Return the coins balance
+    return res.status(200).json({
+      message: 'Coins retrieved successfully',
+      coins: userProgress.coins
+    });
+
+  } catch (error) {
+    console.error('Error fetching coins:', error);
+    return res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
 const ProtectedRouteForAssessment = async (req, res) => {
   try {
     // Validate userId using the existing protected route logic
@@ -566,6 +589,8 @@ const levelCompleted = async (req, res) => {
             level.danger= false
             levelUpdated = true;
 
+            userProgress.coins += 30;
+
             // If the current level is not divisible by 3, unlock the next level
             const nextLevelInSubtopic = subtopic.levels.find(l => l.id === nextLevelId);
             if (currentLevelId % 3 !== 0) {
@@ -702,6 +727,47 @@ const weekStreak = async (req, res) => {
   }
 };
 
+const buyStreak = async (req, res) => {
+  try {
+    const userId = res.locals.userId; // Get user ID from token
+    const { missedDate } = req.body; // Missed date to be bought (yyyy-mm-dd format)
+
+    // Fetch the user's progress
+    const userProgress = await UserProgress.findOne({ student: userId });
+
+    if (!userProgress) {
+      return res.status(404).json({ message: 'User progress not found' });
+    }
+
+    // Check if the user has sufficient coins (100 coins required)
+    if (userProgress.coins < 100) {
+      return res.status(400).json({ message: 'Insufficient coins to buy streak' });
+    }
+
+    // Check if the missed date is in the streak loginDates
+    const streakLoginDates = userProgress.streak.loginDates;
+    if (streakLoginDates.includes(missedDate)) {
+      return res.status(400).json({ message: 'Streak already completed for this day' });
+    }
+
+    // Add the missed day to the streak
+    userProgress.streak.loginDates.push(missedDate);
+    userProgress.coins -= 100; // Deduct coins
+
+    await userProgress.save();
+
+    return res.status(200).json({
+      message: 'Streak purchased successfully',
+      updatedStreak: userProgress.streak.loginDates,
+      updatedCoins: userProgress.coins
+    });
+  } catch (error) {
+    console.error('Error buying streak:', error);
+    return res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
+
 module.exports = {
   submitAnswers,
   ProtectedRouteForAssessment,
@@ -713,4 +779,6 @@ module.exports = {
   levelCompleted, 
   ProtectedRouteForLevel,
   weekStreak,
+  getUserCoins,
+  buyStreak
 };
