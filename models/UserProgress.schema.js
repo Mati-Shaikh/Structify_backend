@@ -48,6 +48,20 @@ const userProgressSchema = mongoose.Schema({
             default: false
           }
         }],
+        badge: {
+          name: {
+            type: String,
+            required: true
+          },
+          description: {
+            type: String,
+            required: true
+          },
+          lock: {  // Whether the badge is locked initially
+            type: Boolean,
+            default: true
+          }
+        },
         assessment: {
           id: {
             type: Number
@@ -93,20 +107,19 @@ const userProgressSchema = mongoose.Schema({
         default: "Insertion At Front"
       }
     },
-    
   },
   streak: {
     currentStreak: { type: Number, default: 0 },
     lastLoginDate: { type: Date },
     loginDates: [{ type: Date }] // Store all login dates
-  },  
+  },
   assessments: [{
     id: {
       type: Number,
     },
     name: {
-        type: String,
-      },
+      type: String,
+    },
     date: {
       type: Date,
       default: Date.now

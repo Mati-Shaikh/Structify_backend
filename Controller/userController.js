@@ -3,6 +3,76 @@ const UserProgress = require('../models/UserProgress.schema');
 const Student = require('../models/Student.schema');
 const mongoose = require('mongoose');
 const learningPath = require('./learningPath');
+const nodemailer = require("nodemailer");
+
+const sendStreakBreakEmail = async (userId) => {
+  // Fetch user details from the database
+  const user = await Student.findById(userId);
+
+  if (!user) {
+    return;
+  }
+
+  // Set up Nodemailer to send the email
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.EMAIL,  // Your email address
+      pass: process.env.EMAIL_PASSWORD,  // Your email password or app-specific password
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL,  // Sender address
+    to: user.Email,  // Receiver's email address
+    subject: "Your Learning Streak is Broken!",
+    text: `Hello ${user.FirstName},\n\nIt seems like you've missed your learning streak! Don't worry, it's never too late to get back on track. Log in now and keep up the momentum to maintain your streak!\n\nKeep up the great work!\n- Structify Team`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("Streak break email sent successfully!");
+  } catch (error) {
+    console.error("Error sending streak break email:", error);
+  }
+};
+
+const updateStreak = async (userId) => {
+  const userProgress = await UserProgress.findOne({ student: userId });
+  const currentDate = new Date().toISOString().split("T")[0]; // Current date in YYYY-MM-DD
+
+  let streakBroken = false; // New flag to track streak break
+
+  if (!userProgress.streak.lastLoginDate) {
+    // First login, initialize streak
+    userProgress.streak.lastLoginDate = currentDate;
+    userProgress.streak.currentStreak = 1;
+    userProgress.streak.loginDates.push(new Date());
+  } else {
+    const lastLoginDate = new Date(userProgress.streak.lastLoginDate).toISOString().split("T")[0];
+
+    if (new Date(lastLoginDate).getTime() + 86400000 === new Date(currentDate).getTime()) {
+      // Consecutive login, increment streak
+      userProgress.streak.currentStreak += 1;
+    } else if (lastLoginDate !== currentDate) {
+      // Non-consecutive login, reset streak
+      userProgress.streak.currentStreak = 1;
+      streakBroken = true; // Set streakBroken flag
+    }
+
+    if (!userProgress.streak.loginDates.some(date => date.toISOString().split("T")[0] === currentDate)) {
+      userProgress.streak.loginDates.push(new Date()); // Avoid duplicate entries
+    }
+  }
+
+  userProgress.streak.lastLoginDate = new Date();
+  await userProgress.save();
+
+  if (streakBroken) {
+    // Send email to the user if streak is broken
+    await sendStreakBreakEmail(userId);
+  }
+};
 
 const getUserCoins = async (req, res) => {
   try {
@@ -493,7 +563,7 @@ const submitAnswers = async (req, res) => {
             // Mark current assessment as completed and update its levels
             subtopic.assessment.isCompleted = true;
             subtopic.assessment.danger = false;
-
+            subtopic.badge.lock = false;
             subtopic.levels.forEach((level) => {
               if (!level.isLocked) {
                 level.danger = false;
@@ -558,7 +628,13 @@ const submitAnswers = async (req, res) => {
 
 const levelCompleted = async (req, res) => {
   try {
+
     const userId = res.locals.userId; // The ID from the decoded token
+    // Update streak
+    if(userId)
+    {
+      await updateStreak(userId);
+    }
     const { nextLevel, currentLevel } = req.body;
 
     // Extract level IDs from the provided names (assuming level names follow the "level1", "level2" pattern)
