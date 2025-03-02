@@ -448,7 +448,6 @@ const submitAnswers = async (req, res) => {
       return res.status(404).json({ message: "User progress not found" });
     }
 
-
     // Create a mapping of level names to IDs for efficient lookup
     const levelNameToIdMap = {};
     userProgress.learningPath.topics.forEach((topic) => {
@@ -458,7 +457,6 @@ const submitAnswers = async (req, res) => {
         });
       });
     });
-
 
     // Process responses
     for (let i = 0; i < responses.length; i++) {
@@ -504,14 +502,16 @@ const submitAnswers = async (req, res) => {
       return null;
     };
 
-    if (score < 8) {
+    // We'll accumulate unlocked badge(s) here (if any)
+    let unlockedBadges = [];
 
-      //Declare the Assessment in danger
+    if (score < 8) {
+      // Declare the Assessment in danger
       for (const topic of userProgress.learningPath.topics) {
         for (const subtopic of topic.subtopics) {
           if (subtopic.assessment && subtopic.assessment.id === assessmentId) {
             subtopic.assessment.danger = true;
-            subtopic.assessment.isCompleted = false; // Return the name of the assessment
+            subtopic.assessment.isCompleted = false;
           }
         }
       }
@@ -520,39 +520,36 @@ const submitAnswers = async (req, res) => {
       for (const level in topicStats) {
         const { correct, total, name } = topicStats[level];
         if ((correct / total) * 100 < 60) {
-          dangerLevels.push({ id: parseInt(level), name: name }); // Include level ID and name
+          dangerLevels.push({ id: parseInt(level), name: name });
         }
       }
 
-      // Update UserProgress for the student
-      if (userProgress) {
-        // Mark levels as danger in the user's learning path
-        userProgress.learningPath.topics.forEach((topic) => {
-          topic.subtopics.forEach((subtopic) => {
-            subtopic.levels.forEach((level) => {
-              if (dangerLevels.some((danger) => danger.id === level.id)) {
-                level.danger = true;
-                level.isCompleted = false
-              }
-            });
+      // Mark levels as danger in the user's learning path
+      userProgress.learningPath.topics.forEach((topic) => {
+        topic.subtopics.forEach((subtopic) => {
+          subtopic.levels.forEach((level) => {
+            if (dangerLevels.some((danger) => danger.id === level.id)) {
+              level.danger = true;
+              level.isCompleted = false;
+            }
           });
         });
+      });
 
-        // Update assessment details
-        userProgress.assessments.push({
-          id: assessmentId,
-          name: findAssessmentNameById(assessmentId),
-          date: new Date(),
-          score,
-          passed: false,
-          dangerLevels,
-        });
+      // Update assessment details for failure
+      userProgress.assessments.push({
+        id: assessmentId,
+        name: findAssessmentNameById(assessmentId),
+        date: new Date(),
+        score,
+        passed: false,
+        dangerLevels,
+      });
 
-        await userProgress.save();
-      }
+      await userProgress.save();
 
     } else {
-
+      // Score is 8 or greater: update assessment and unlock badge
       for (let i = 0; i < userProgress.learningPath.topics.length; i++) {
         const topic = userProgress.learningPath.topics[i];
 
@@ -563,7 +560,10 @@ const submitAnswers = async (req, res) => {
             // Mark current assessment as completed and update its levels
             subtopic.assessment.isCompleted = true;
             subtopic.assessment.danger = false;
+            // Unlock the badge for this subtopic
             subtopic.badge.lock = false;
+            unlockedBadges.push(subtopic.badge);
+
             subtopic.levels.forEach((level) => {
               if (!level.isLocked) {
                 level.danger = false;
@@ -571,7 +571,7 @@ const submitAnswers = async (req, res) => {
               }
             });
 
-            // Unlock the first level of the next subtopic
+            // Unlock the first level of the next subtopic if exists
             if (j + 1 < topic.subtopics.length) {
               const nextSubtopic = topic.subtopics[j + 1];
               if (nextSubtopic.levels.length > 0) {
@@ -591,9 +591,7 @@ const submitAnswers = async (req, res) => {
         }
       }
 
-
-
-      // Update assessment details
+      // Update assessment details for success
       userProgress.assessments.push({
         id: assessmentId,
         name: findAssessmentNameById(assessmentId),
@@ -604,26 +602,26 @@ const submitAnswers = async (req, res) => {
       });
 
       await userProgress.save();
-
-
-
     }
 
-    // Prepare response with stats for frontend visualization
+    // Prepare response with stats for frontend visualization.
+    // Include the unlocked badge data only if it was unlocked.
     const result = {
       score,
       totalQuestions: responses.length,
       topicStats,
       difficultyStats,
       dangerLevels,
+      ...(unlockedBadges.length > 0 && { unlockedBadges })
     };
 
     res.status(200).json(result);
   } catch (error) {
-    console.error('Error submitting answers:', error);
-    res.status(500).json({ message: 'Failed to submit answers', error: error.message });
+    console.error("Error submitting answers:", error);
+    res.status(500).json({ message: "Failed to submit answers", error: error.message });
   }
 };
+
 
 
 const levelCompleted = async (req, res) => {
