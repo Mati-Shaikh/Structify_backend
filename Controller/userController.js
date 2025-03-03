@@ -853,6 +853,120 @@ const buyStreak = async (req, res) => {
   }
 };
 
+const submitRating = async (req, res) => {
+  try {
+    const userId = res.locals.userId;
+    const { levelId, rating } = req.body;
+
+    if (!levelId || !rating || rating < 1 || rating > 5) {
+      return res.status(400).json({ message: "Invalid rating data" });
+    }
+
+    const userProgress = await UserProgress.findOne({ student: userId });
+
+    if (!userProgress) {
+      return res.status(404).json({ message: "User progress not found" });
+    }
+
+    let levelFound = null;
+    let levelPath = null;
+
+    // Find the level and store its path
+    userProgress.learningPath.topics.forEach((topic, topicIndex) => {
+      topic.subtopics.forEach((subtopic, subtopicIndex) => {
+        subtopic.levels.forEach((level, levelIndex) => {
+          if (level.id === levelId) {
+            levelFound = level;
+            levelPath = {
+              topicIndex,
+              subtopicIndex,
+              levelIndex
+            };
+          }
+        });
+      });
+    });
+
+    if (!levelFound) {
+      return res.status(404).json({ message: "Level not found" });
+    } else {
+      // Update the rating directly instead of trying to push to an array
+      const topic = userProgress.learningPath.topics[levelPath.topicIndex];
+      const subtopic = topic.subtopics[levelPath.subtopicIndex];
+      
+      // Set the rating directly
+      subtopic.levels[levelPath.levelIndex].rating = rating;
+    }
+
+    await userProgress.save();
+
+    res.status(200).json({
+      message: "Rating submitted successfully",
+      rating: rating
+    });
+
+  } catch (error) {
+    console.error("Error submitting rating:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+const getLevelRatings = async (req, res) => {
+  try {
+    // Find all user progress documents
+    const allUserProgress = await UserProgress.find({}, 'learningPath');
+    
+    if (!allUserProgress || allUserProgress.length === 0) {
+      return res.status(404).json({ message: 'No user progress data found' });
+    }
+    
+    // Initialize a map to store level ratings
+    const levelRatings = {};
+    
+    // Iterate through all user progress data
+    allUserProgress.forEach(userProgress => {
+      // Iterate through topics, subtopics, and levels to collect all ratings
+      userProgress.learningPath.topics.forEach(topic => {
+        topic.subtopics.forEach(subtopic => {
+          subtopic.levels.forEach(level => {
+            // Only process levels that have ratings
+            if (level.rating && level.rating > 0) {
+              // Initialize level data if not already present
+              if (!levelRatings[level.id]) {
+                levelRatings[level.id] = {
+                  totalRating: 0,
+                  ratingCount: 0,
+                  averageRating: 0
+                };
+              }
+              
+              // Add this rating to the total
+              levelRatings[level.id].totalRating += level.rating;
+              levelRatings[level.id].ratingCount += 1;
+            }
+          });
+        });
+      });
+    });
+    
+    // Calculate average ratings
+    Object.keys(levelRatings).forEach(levelId => {
+      const level = levelRatings[levelId];
+      level.averageRating = (level.totalRating / level.ratingCount).toFixed(1);
+    });
+    
+    return res.status(200).json({
+      message: 'Level ratings retrieved successfully',
+      levelRatings
+    });
+  } catch (error) {
+    console.error('Error retrieving level ratings:', error);
+    return res.status(500).json({
+      message: 'Server error',
+      error: error.message
+    });
+  }
+};
 
 module.exports = {
   submitAnswers,
@@ -866,5 +980,7 @@ module.exports = {
   ProtectedRouteForLevel,
   weekStreak,
   getUserCoins,
-  buyStreak
+  buyStreak,
+  submitRating,
+  getLevelRatings
 };
