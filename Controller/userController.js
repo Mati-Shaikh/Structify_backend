@@ -622,17 +622,15 @@ const submitAnswers = async (req, res) => {
   }
 };
 
-
-
 const levelCompleted = async (req, res) => {
   try {
-
     const userId = res.locals.userId; // The ID from the decoded token
+
     // Update streak
-    if(userId)
-    {
+    if(userId) {
       await updateStreak(userId);
     }
+
     const { nextLevel, currentLevel } = req.body;
 
     // Extract level IDs from the provided names (assuming level names follow the "level1", "level2" pattern)
@@ -647,7 +645,8 @@ const levelCompleted = async (req, res) => {
 
     let levelUpdated = false;
     let assessmentUpdated = false;
-    let flag = true
+    let flag = true;
+    let currentLevelName = "";
 
     // Process the levels and assessments based on divisibility by 3
     userProgress.learningPath.topics.forEach((topic) => {
@@ -655,12 +654,13 @@ const levelCompleted = async (req, res) => {
         subtopic.levels.forEach((level) => {
           if (level.id === currentLevelId) {
 
-            if(level.isCompleted){ //If already completed level then a flag for not changing cuurentStatus
-              flag = false
+            if(level.isCompleted) { // If already completed level then a flag for not changing currentStatus
+              flag = false;
             }
+
             // 1. Mark the current level as completed
             level.isCompleted = true;
-            level.danger= false
+            level.danger = false;
             levelUpdated = true;
 
             userProgress.coins += 30;
@@ -683,6 +683,9 @@ const levelCompleted = async (req, res) => {
                 subtopic: subtopic.subtopic
               };
             }
+
+            // Fetch the correct name for the current level
+            currentLevelName = level.name;
           }
 
           if (currentLevelId % 3 === 0 && level.id === currentLevelId) {
@@ -699,7 +702,15 @@ const levelCompleted = async (req, res) => {
     // Save the changes to user progress
     if (levelUpdated || assessmentUpdated) {
       await userProgress.save();
-      res.status(200).json({ message: "Level completed and progress updated successfully." });
+
+      // Send the response with the current level's id and name
+      return res.status(200).json({
+        message: "Level completed and progress updated successfully.",
+        currentLevel: {
+          id: currentLevelId,
+          name: currentLevelName // Send the fetched level name
+        }
+      });
     } else {
       res.status(400).json({ message: "Unable to update level or assessment." });
     }
@@ -708,6 +719,7 @@ const levelCompleted = async (req, res) => {
     res.status(500).json({ message: 'Failed to complete level', error: error.message });
   }
 };
+
 
 const ProtectedRouteForLevel = async (req, res) => {
   try {
