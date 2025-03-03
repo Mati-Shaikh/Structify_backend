@@ -1,9 +1,60 @@
 const Question = require('../models/Questions.schema');
 const UserProgress = require('../models/UserProgress.schema');
 const Student = require('../models/Student.schema');
+const SupportRequest = require("../models/SupportRequest.schema");  // Import the model
 const mongoose = require('mongoose');
 const learningPath = require('./learningPath');
 const nodemailer = require("nodemailer");
+
+const submitSupportRequest = async (req, res) => {
+  try {
+    const userId = res.locals.userId;
+    const { message } = req.body;
+
+    if (!message || message.trim() === "") {
+      return res.status(400).json({ message: "Support message cannot be empty" });
+    }
+
+    // Fetch user details
+    const user = await Student.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Store request in the database
+    const supportRequest = new SupportRequest({
+      user: userId,
+      message
+    });
+
+    await supportRequest.save();
+
+    // Send confirmation email to the user
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.EMAIL, 
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL,
+      to: user.Email,
+      subject: "Support Request Received",
+      text: `Hello ${user.FirstName},\n\nWe have received your support request:\n\n"${message}"\n\nOur team is looking into it and will reach out to you soon.\n\nThank you for reaching out!\n- Structify Team`,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(200).json({
+      message: "Support request submitted successfully. We will get back to you soon.",
+    });
+  } catch (error) {
+    console.error("Error submitting support request:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
 
 const sendStreakBreakEmail = async (userId) => {
   // Fetch user details from the database
@@ -982,5 +1033,6 @@ module.exports = {
   getUserCoins,
   buyStreak,
   submitRating,
-  getLevelRatings
+  getLevelRatings,
+  submitSupportRequest
 };
