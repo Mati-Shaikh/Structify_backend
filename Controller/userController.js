@@ -125,7 +125,7 @@ const updateStreak = async (userId) => {
   }
 };
 
-const getUserCoins = async (req, res) => {
+const getUserCoinsAndBadges = async (req, res) => {
   try {
     const userId = res.locals.userId; // The ID from the decoded token
 
@@ -136,14 +136,31 @@ const getUserCoins = async (req, res) => {
       return res.status(404).json({ message: 'User progress not found' });
     }
 
-    // Return the coins balance
+    // Count unlocked badges
+    let unlockedBadgesCount = 0;
+    
+    // Check each topic, subtopic, and its badge lock status
+    if (userProgress.learningPath && userProgress.learningPath.topics) {
+      userProgress.learningPath.topics.forEach(topic => {
+        if (topic.subtopics) {
+          topic.subtopics.forEach(subtopic => {
+            if (subtopic.badge && subtopic.badge.lock === false) {
+              unlockedBadgesCount++;
+            }
+          });
+        }
+      });
+    }
+
+    // Return both the coins balance and unlocked badges count
     return res.status(200).json({
-      message: 'Coins retrieved successfully',
-      coins: userProgress.coins
+      message: 'User data retrieved successfully',
+      coins: userProgress.coins,
+      unlockedBadges: unlockedBadgesCount
     });
 
   } catch (error) {
-    console.error('Error fetching coins:', error);
+    console.error('Error fetching user data:', error);
     return res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
@@ -1030,7 +1047,7 @@ module.exports = {
   levelCompleted, 
   ProtectedRouteForLevel,
   weekStreak,
-  getUserCoins,
+  getUserCoinsAndBadges,
   buyStreak,
   submitRating,
   getLevelRatings,

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { getRandomQuestionsByTopic } = require('../Controller/questionController');
-const { submitAnswers, ProtectedRouteForAssessment, ShowInitialQuestions, SetShowInitialQuestions, ShowWelcome, SetShowWelcome, getLearningPath, levelCompleted, ProtectedRouteForLevel, weekStreak, getUserCoins, buyStreak, submitRating, getLevelRatings, submitSupportRequest} = require('../Controller/userController');
+const { submitAnswers, ProtectedRouteForAssessment, ShowInitialQuestions, SetShowInitialQuestions, ShowWelcome, SetShowWelcome, getLearningPath, levelCompleted, ProtectedRouteForLevel, weekStreak, getUserCoinsAndBadges, buyStreak, submitRating, getLevelRatings, submitSupportRequest} = require('../Controller/userController');
 const verifyToken = require("./authentication");
 
 
@@ -28,7 +28,7 @@ router.get('/weekStreak', verifyToken, weekStreak);
 
 router.post('/protectedRouteGame', verifyToken, ProtectedRouteForLevel );
 
-router.get('/coins', verifyToken, getUserCoins);
+router.get('/coinsandbadges', verifyToken, getUserCoinsAndBadges);
 
 router.post('/buyStreak', verifyToken, buyStreak );
 
